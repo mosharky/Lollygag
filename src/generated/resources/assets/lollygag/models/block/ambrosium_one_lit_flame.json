@@ -1,0 +1,7 @@
+{
+  "parent": "caverns_and_chasms:block/template_coal_one_lit",
+  "textures": {
+    "coal": "lollygag:block/ambrosium_lit",
+    "fire": "lollygag:block/ambrosium_fire"
+  }
+}

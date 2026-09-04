@@ -1,0 +1,6 @@
+{
+  "parent": "nomansland:block/pebble/pebble_8",
+  "textures": {
+    "0": "lollygag:block/flint_pebbles"
+  }
+}

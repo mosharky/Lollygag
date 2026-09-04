@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "": [
+      {
+        "model": "lollygag:block/skygrass_sprouts"
+      },
+      {
+        "model": "lollygag:block/skygrass_sprouts",
+        "y": 270
+      }
+    ]
+  }
+}

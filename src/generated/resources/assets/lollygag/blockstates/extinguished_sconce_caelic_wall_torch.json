@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=east": {
+      "model": "lollygag:block/extinguished_sconce_caelic_wall_torch",
+      "y": 90
+    },
+    "facing=north": {
+      "model": "lollygag:block/extinguished_sconce_caelic_wall_torch"
+    },
+    "facing=south": {
+      "model": "lollygag:block/extinguished_sconce_caelic_wall_torch",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "lollygag:block/extinguished_sconce_caelic_wall_torch",
+      "y": 270
+    }
+  }
+}

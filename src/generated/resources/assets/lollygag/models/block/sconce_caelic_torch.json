@@ -1,0 +1,6 @@
+{
+  "parent": "nomansland:block/sconce_torch_template",
+  "textures": {
+    "texture": "lollygag:block/sconce_caelic_torch"
+  }
+}

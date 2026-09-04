@@ -1,0 +1,16 @@
+{
+  "variants": {
+    "hanging=false,lit=false": {
+      "model": "caverns_and_chasms:block/brazier_off"
+    },
+    "hanging=false,lit=true": {
+      "model": "lollygag:block/caelic_brazier"
+    },
+    "hanging=true,lit=false": {
+      "model": "caverns_and_chasms:block/brazier_off_hanging"
+    },
+    "hanging=true,lit=true": {
+      "model": "lollygag:block/caelic_brazier_hanging"
+    }
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "half=lower": {
+      "model": "lollygag:block/tall_skygrass_bottom"
+    },
+    "half=upper": {
+      "model": "lollygag:block/tall_skygrass_top"
+    }
+  }
+}

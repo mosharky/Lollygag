@@ -1,0 +1,22 @@
+{
+  "required": true,
+  "package": "momo.dev.lollygag.mixin",
+  "compatibilityLevel": "JAVA_21",
+  "mixins": [
+    "aether.MoaAccessor",
+    "bountifulfares.HangingAppleBlockMixin",
+    "bountifulfares.HangingGoldenAppleBlockMixin",
+    "bountifulfares.HangingHoaryAppleBlockMixin",
+    "bountifulfares.HangingLemonBlockMixin",
+    "bountifulfares.HangingOrangeBlockMixin",
+    "bountifulfares.HangingPlumBlockMixin",
+    "bountifulfares.HangingWalnutsBlockMixin",
+    "bountifulfares.HangingWitheredGoldenAppleBlockMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  },
+  "overwrites": {
+    "requireAnnotations": false
+  }
+}

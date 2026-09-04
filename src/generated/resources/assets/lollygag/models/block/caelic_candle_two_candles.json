@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/template_two_candles",
+  "textures": {
+    "all": "lollygag:block/caelic_candle",
+    "particle": "lollygag:block/caelic_candle"
+  }
+}

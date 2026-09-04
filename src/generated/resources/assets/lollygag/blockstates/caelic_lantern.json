@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "hanging=false": {
+      "model": "lollygag:block/caelic_lantern"
+    },
+    "hanging=true": {
+      "model": "lollygag:block/caelic_lantern_hanging"
+    }
+  }
+}

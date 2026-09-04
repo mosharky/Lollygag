@@ -1,0 +1,276 @@
+{
+  "variants": {
+    "coal=1,lit=false,warm=false": [
+      {
+        "model": "lollygag:block/ambrosium_one"
+      },
+      {
+        "model": "lollygag:block/ambrosium_one",
+        "y": 90
+      },
+      {
+        "model": "lollygag:block/ambrosium_one",
+        "y": 180
+      },
+      {
+        "model": "lollygag:block/ambrosium_one",
+        "y": 270
+      }
+    ],
+    "coal=1,lit=false,warm=true": [
+      {
+        "model": "lollygag:block/ambrosium_one_lit"
+      },
+      {
+        "model": "lollygag:block/ambrosium_one_lit",
+        "y": 90
+      },
+      {
+        "model": "lollygag:block/ambrosium_one_lit",
+        "y": 180
+      },
+      {
+        "model": "lollygag:block/ambrosium_one_lit",
+        "y": 270
+      }
+    ],
+    "coal=1,lit=true,warm=false": [
+      {
+        "model": "lollygag:block/ambrosium_one_lit_flame"
+      },
+      {
+        "model": "lollygag:block/ambrosium_one_lit_flame",
+        "y": 90
+      },
+      {
+        "model": "lollygag:block/ambrosium_one_lit_flame",
+        "y": 180
+      },
+      {
+        "model": "lollygag:block/ambrosium_one_lit_flame",
+        "y": 270
+      }
+    ],
+    "coal=1,lit=true,warm=true": [
+      {
+        "model": "lollygag:block/ambrosium_one_lit_flame"
+      },
+      {
+        "model": "lollygag:block/ambrosium_one_lit_flame",
+        "y": 90
+      },
+      {
+        "model": "lollygag:block/ambrosium_one_lit_flame",
+        "y": 180
+      },
+      {
+        "model": "lollygag:block/ambrosium_one_lit_flame",
+        "y": 270
+      }
+    ],
+    "coal=2,lit=false,warm=false": [
+      {
+        "model": "lollygag:block/ambrosium_two"
+      },
+      {
+        "model": "lollygag:block/ambrosium_two",
+        "y": 90
+      },
+      {
+        "model": "lollygag:block/ambrosium_two",
+        "y": 180
+      },
+      {
+        "model": "lollygag:block/ambrosium_two",
+        "y": 270
+      }
+    ],
+    "coal=2,lit=false,warm=true": [
+      {
+        "model": "lollygag:block/ambrosium_two_lit"
+      },
+      {
+        "model": "lollygag:block/ambrosium_two_lit",
+        "y": 90
+      },
+      {
+        "model": "lollygag:block/ambrosium_two_lit",
+        "y": 180
+      },
+      {
+        "model": "lollygag:block/ambrosium_two_lit",
+        "y": 270
+      }
+    ],
+    "coal=2,lit=true,warm=false": [
+      {
+        "model": "lollygag:block/ambrosium_two_lit_flame"
+      },
+      {
+        "model": "lollygag:block/ambrosium_two_lit_flame",
+        "y": 90
+      },
+      {
+        "model": "lollygag:block/ambrosium_two_lit_flame",
+        "y": 180
+      },
+      {
+        "model": "lollygag:block/ambrosium_two_lit_flame",
+        "y": 270
+      }
+    ],
+    "coal=2,lit=true,warm=true": [
+      {
+        "model": "lollygag:block/ambrosium_two_lit_flame"
+      },
+      {
+        "model": "lollygag:block/ambrosium_two_lit_flame",
+        "y": 90
+      },
+      {
+        "model": "lollygag:block/ambrosium_two_lit_flame",
+        "y": 180
+      },
+      {
+        "model": "lollygag:block/ambrosium_two_lit_flame",
+        "y": 270
+      }
+    ],
+    "coal=3,lit=false,warm=false": [
+      {
+        "model": "lollygag:block/ambrosium_three"
+      },
+      {
+        "model": "lollygag:block/ambrosium_three",
+        "y": 90
+      },
+      {
+        "model": "lollygag:block/ambrosium_three",
+        "y": 180
+      },
+      {
+        "model": "lollygag:block/ambrosium_three",
+        "y": 270
+      }
+    ],
+    "coal=3,lit=false,warm=true": [
+      {
+        "model": "lollygag:block/ambrosium_three_lit"
+      },
+      {
+        "model": "lollygag:block/ambrosium_three_lit",
+        "y": 90
+      },
+      {
+        "model": "lollygag:block/ambrosium_three_lit",
+        "y": 180
+      },
+      {
+        "model": "lollygag:block/ambrosium_three_lit",
+        "y": 270
+      }
+    ],
+    "coal=3,lit=true,warm=false": [
+      {
+        "model": "lollygag:block/ambrosium_three_lit_flame"
+      },
+      {
+        "model": "lollygag:block/ambrosium_three_lit_flame",
+        "y": 90
+      },
+      {
+        "model": "lollygag:block/ambrosium_three_lit_flame",
+        "y": 180
+      },
+      {
+        "model": "lollygag:block/ambrosium_three_lit_flame",
+        "y": 270
+      }
+    ],
+    "coal=3,lit=true,warm=true": [
+      {
+        "model": "lollygag:block/ambrosium_three_lit_flame"
+      },
+      {
+        "model": "lollygag:block/ambrosium_three_lit_flame",
+        "y": 90
+      },
+      {
+        "model": "lollygag:block/ambrosium_three_lit_flame",
+        "y": 180
+      },
+      {
+        "model": "lollygag:block/ambrosium_three_lit_flame",
+        "y": 270
+      }
+    ],
+    "coal=4,lit=false,warm=false": [
+      {
+        "model": "lollygag:block/ambrosium_four"
+      },
+      {
+        "model": "lollygag:block/ambrosium_four",
+        "y": 90
+      },
+      {
+        "model": "lollygag:block/ambrosium_four",
+        "y": 180
+      },
+      {
+        "model": "lollygag:block/ambrosium_four",
+        "y": 270
+      }
+    ],
+    "coal=4,lit=false,warm=true": [
+      {
+        "model": "lollygag:block/ambrosium_four_lit"
+      },
+      {
+        "model": "lollygag:block/ambrosium_four_lit",
+        "y": 90
+      },
+      {
+        "model": "lollygag:block/ambrosium_four_lit",
+        "y": 180
+      },
+      {
+        "model": "lollygag:block/ambrosium_four_lit",
+        "y": 270
+      }
+    ],
+    "coal=4,lit=true,warm=false": [
+      {
+        "model": "lollygag:block/ambrosium_four_lit_flame"
+      },
+      {
+        "model": "lollygag:block/ambrosium_four_lit_flame",
+        "y": 90
+      },
+      {
+        "model": "lollygag:block/ambrosium_four_lit_flame",
+        "y": 180
+      },
+      {
+        "model": "lollygag:block/ambrosium_four_lit_flame",
+        "y": 270
+      }
+    ],
+    "coal=4,lit=true,warm=true": [
+      {
+        "model": "lollygag:block/ambrosium_four_lit_flame"
+      },
+      {
+        "model": "lollygag:block/ambrosium_four_lit_flame",
+        "y": 90
+      },
+      {
+        "model": "lollygag:block/ambrosium_four_lit_flame",
+        "y": 180
+      },
+      {
+        "model": "lollygag:block/ambrosium_four_lit_flame",
+        "y": 270
+      }
+    ]
+  }
+}

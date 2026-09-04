@@ -1,0 +1,7 @@
+{
+  "parent": "autumnity:block/large_cupric_jack_o_lantern_slice_bottom_northeast_z",
+  "textures": {
+    "left": "lollygag:block/large_caelic_jack_o_lantern_slice_bottom_left",
+    "particle": "lollygag:block/large_caelic_jack_o_lantern_slice_top_left"
+  }
+}

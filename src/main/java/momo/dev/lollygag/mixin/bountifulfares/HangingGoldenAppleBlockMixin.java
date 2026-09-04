@@ -1,0 +1,30 @@
+package momo.dev.lollygag.mixin.bountifulfares;
+
+import com.mojang.serialization.MapCodec;
+import momo.dev.lollygag.registry.LTags;
+import net.hecco.bountifulfares.definition.block.custom.HangingGoldenAppleBlock;
+import net.minecraft.core.BlockPos;
+import net.minecraft.world.level.LevelReader;
+import net.minecraft.world.level.block.BushBlock;
+import net.minecraft.world.level.block.state.BlockState;
+import org.spongepowered.asm.mixin.Mixin;
+import org.spongepowered.asm.mixin.injection.At;
+import org.spongepowered.asm.mixin.injection.Inject;
+import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
+
+@Mixin(HangingGoldenAppleBlock.class)
+public class HangingGoldenAppleBlockMixin extends BushBlock {
+    public HangingGoldenAppleBlockMixin(Properties properties) {
+        super(properties);
+    }
+
+    @Override
+    protected MapCodec<? extends BushBlock> codec() { return null; }
+
+    @Inject(method = "canSurvive", at = @At("RETURN"), cancellable = true)
+    public void lollygag$canSurvive(BlockState state, LevelReader world, BlockPos pos, CallbackInfoReturnable<Boolean> cir) {
+        cir.setReturnValue(
+                world.getBlockState(pos.above()).is(LTags.BLOCKS.CAN_HANG_ON.GOLDEN_APPLE) && !world.isWaterAt(pos)
+        );
+    }
+}

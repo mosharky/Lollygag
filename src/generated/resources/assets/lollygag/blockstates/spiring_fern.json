@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "top=false": {
+      "model": "lollygag:block/spiring_fern"
+    },
+    "top=true": {
+      "model": "lollygag:block/spiring_fern_top"
+    }
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/cube_all",
+  "textures": {
+    "all": "lollygag:block/rocky_aether_dirt"
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "lit=false": {
+      "model": "lollygag:block/caelic_candle_cake"
+    },
+    "lit=true": {
+      "model": "lollygag:block/caelic_candle_cake_lit"
+    }
+  }
+}

@@ -1,0 +1,57 @@
+{
+  "multipart": [
+    {
+      "apply": {
+        "model": "incubation:block/hay_nest"
+      }
+    },
+    {
+      "apply": {
+        "model": "lollygag:block/one_blue_moa_egg"
+      },
+      "when": {
+        "eggs": "1"
+      }
+    },
+    {
+      "apply": {
+        "model": "lollygag:block/two_blue_moa_eggs"
+      },
+      "when": {
+        "eggs": "2"
+      }
+    },
+    {
+      "apply": {
+        "model": "lollygag:block/three_blue_moa_eggs"
+      },
+      "when": {
+        "eggs": "3"
+      }
+    },
+    {
+      "apply": {
+        "model": "lollygag:block/four_blue_moa_eggs"
+      },
+      "when": {
+        "eggs": "4"
+      }
+    },
+    {
+      "apply": {
+        "model": "lollygag:block/five_blue_moa_eggs"
+      },
+      "when": {
+        "eggs": "5"
+      }
+    },
+    {
+      "apply": {
+        "model": "lollygag:block/six_blue_moa_eggs"
+      },
+      "when": {
+        "eggs": "6"
+      }
+    }
+  ]
+}

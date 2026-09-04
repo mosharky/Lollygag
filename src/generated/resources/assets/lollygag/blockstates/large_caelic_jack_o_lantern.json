@@ -1,0 +1,52 @@
+{
+  "variants": {
+    "carved_side=x,facing=east,half=bottom": {
+      "model": "lollygag:block/large_caelic_jack_o_lantern_slice_bottom_northeast_x"
+    },
+    "carved_side=x,facing=east,half=top": {
+      "model": "lollygag:block/large_caelic_jack_o_lantern_slice_top_northeast_x"
+    },
+    "carved_side=x,facing=north,half=bottom": {
+      "model": "lollygag:block/large_caelic_jack_o_lantern_slice_bottom_northwest_x"
+    },
+    "carved_side=x,facing=north,half=top": {
+      "model": "lollygag:block/large_caelic_jack_o_lantern_slice_top_northwest_x"
+    },
+    "carved_side=x,facing=south,half=bottom": {
+      "model": "lollygag:block/large_caelic_jack_o_lantern_slice_bottom_southeast_x"
+    },
+    "carved_side=x,facing=south,half=top": {
+      "model": "lollygag:block/large_caelic_jack_o_lantern_slice_top_southeast_x"
+    },
+    "carved_side=x,facing=west,half=bottom": {
+      "model": "lollygag:block/large_caelic_jack_o_lantern_slice_bottom_southwest_x"
+    },
+    "carved_side=x,facing=west,half=top": {
+      "model": "lollygag:block/large_caelic_jack_o_lantern_slice_top_southwest_x"
+    },
+    "carved_side=z,facing=east,half=bottom": {
+      "model": "lollygag:block/large_caelic_jack_o_lantern_slice_bottom_northeast_z"
+    },
+    "carved_side=z,facing=east,half=top": {
+      "model": "lollygag:block/large_caelic_jack_o_lantern_slice_top_northeast_z"
+    },
+    "carved_side=z,facing=north,half=bottom": {
+      "model": "lollygag:block/large_caelic_jack_o_lantern_slice_bottom_northwest_z"
+    },
+    "carved_side=z,facing=north,half=top": {
+      "model": "lollygag:block/large_caelic_jack_o_lantern_slice_top_northwest_z"
+    },
+    "carved_side=z,facing=south,half=bottom": {
+      "model": "lollygag:block/large_caelic_jack_o_lantern_slice_bottom_southeast_z"
+    },
+    "carved_side=z,facing=south,half=top": {
+      "model": "lollygag:block/large_caelic_jack_o_lantern_slice_top_southeast_z"
+    },
+    "carved_side=z,facing=west,half=bottom": {
+      "model": "lollygag:block/large_caelic_jack_o_lantern_slice_bottom_southwest_z"
+    },
+    "carved_side=z,facing=west,half=top": {
+      "model": "lollygag:block/large_caelic_jack_o_lantern_slice_top_southwest_z"
+    }
+  }
+}
