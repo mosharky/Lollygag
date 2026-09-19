@@ -7,6 +7,7 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.util.RandomSource;
+import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.LevelReader;
@@ -26,8 +27,13 @@ public class LDwarfSprucePlantBlock extends LDwarfSpruceBlock {
     public LDwarfSprucePlantBlock(Properties properties, LDwarfSpruceHeadBlock headBlock) {
         super(properties);
         this.headBlock = headBlock;
-        this.headBlock.setBodyBlock(this);
+        this.headBlock.setPlantBlock(this);
         this.registerDefaultState(this.stateDefinition.any().setValue(BOTTOM, false));
+    }
+
+    @Override
+    public ItemStack getCloneItemStack(LevelReader level, BlockPos pos, BlockState state) {
+        return new ItemStack(headBlock.asItem());
     }
 
     @Override
@@ -59,6 +65,11 @@ public class LDwarfSprucePlantBlock extends LDwarfSpruceBlock {
             BlockState headstate = level.getBlockState(headpos);
             ((LDwarfSpruceHeadBlock) headstate.getBlock()).performBonemeal(level, random, headpos, headstate);
         }
+    }
+
+    @Override
+    public String getDescriptionId() {
+        return headBlock.getDescriptionId();
     }
 
     @Override

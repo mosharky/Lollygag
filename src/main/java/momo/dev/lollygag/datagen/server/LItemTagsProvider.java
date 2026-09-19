@@ -19,6 +19,7 @@ import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.LeavesBlock;
 import net.minecraft.world.level.block.SaplingBlock;
 import net.neoforged.neoforge.common.data.ExistingFileHelper;
+import net.neoforged.neoforge.registries.DeferredBlock;
 import net.neoforged.neoforge.registries.DeferredItem;
 
 import java.util.concurrent.CompletableFuture;
@@ -32,7 +33,7 @@ public class LItemTagsProvider extends ItemTagsProvider {
 
     @Override
     protected void addTags(HolderLookup.Provider lookupProvider) {
-        for (BlockDefinition<?> def : BLOCK_DEFINITIONS) {
+        for (DeferredBlock<?> def : BLOCKS_REGISTERED) {
             Block block = def.get();
             if (block instanceof SaplingBlock) tag(ItemTags.SAPLINGS, def);
             if (block instanceof LeavesBlock) tag(ItemTags.LEAVES, def);

@@ -3,11 +3,11 @@
 
 package momo.dev.lollygag.common.block;
 
-import momo.dev.lollygag.registry.LBlocks;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.util.RandomSource;
+import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
@@ -24,16 +24,20 @@ public class LDwarfSpruceHeadBlock extends LDwarfSpruceBlock {
     private static final VoxelShape SHAPE = Block.box(2.0D, 0.0D, 2.0D, 14.0D, 13.0D, 14.0D);
     public static final BooleanProperty TOP = BooleanProperty.create("top");
 
-    protected LDwarfSprucePlantBlock bodyBlock;
+    protected LDwarfSprucePlantBlock plantBlock;
 
     public LDwarfSpruceHeadBlock(Properties properties) {
         super(properties);
         this.registerDefaultState(this.stateDefinition.any().setValue(TOP, false));
     }
 
+    public void setPlantBlock(LDwarfSprucePlantBlock block) {
+        this.plantBlock = block;
+    }
 
-    public void setBodyBlock(LDwarfSprucePlantBlock block) {
-        this.bodyBlock = block;
+    @Override
+    public ItemStack getCloneItemStack(LevelReader level, BlockPos pos, BlockState state) {
+        return new ItemStack(this.asItem());
     }
 
     @Override
@@ -49,7 +53,7 @@ public class LDwarfSpruceHeadBlock extends LDwarfSpruceBlock {
         boolean flag = belowstate.getBlock() instanceof LDwarfSpruceHeadBlock;
 
         if (isValidAboveBlock(level.getBlockState(pos.above())))
-            return LBlocks.SPIRING_FERN_PLANT.get().defaultBlockState().setValue(LDwarfSprucePlantBlock.BOTTOM, !flag);
+            return plantBlock.defaultBlockState().setValue(LDwarfSprucePlantBlock.BOTTOM, !flag);
         else if (flag)
             return this.defaultBlockState().setValue(TOP, true);
         else
@@ -64,7 +68,7 @@ public class LDwarfSpruceHeadBlock extends LDwarfSpruceBlock {
     }
 
     public BlockState getBodyState(BlockState originalState) {
-        return this.bodyBlock.defaultBlockState().setValue(LDwarfSprucePlantBlock.BOTTOM, !originalState.getValue(TOP));
+        return this.plantBlock.defaultBlockState().setValue(LDwarfSprucePlantBlock.BOTTOM, !originalState.getValue(TOP));
     }
 
     @Override
@@ -74,7 +78,7 @@ public class LDwarfSpruceHeadBlock extends LDwarfSpruceBlock {
 
     @Override
     public void performBonemeal(ServerLevel level, RandomSource random, BlockPos pos, BlockState state) {
-        level.setBlockAndUpdate(pos.above(), LBlocks.SPIRING_FERN.get().defaultBlockState().setValue(TOP, true));
+        level.setBlockAndUpdate(pos.above(), this.defaultBlockState().setValue(TOP, true));
     }
 
     @Override

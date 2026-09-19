@@ -1,13 +1,14 @@
 package momo.dev.lollygag.datagen.client;
 
-import com.farcr.nomansland.common.definitions.ItemDefinition;
 import momo.dev.lollygag.Lollygag;
 import net.minecraft.data.PackOutput;
 import net.minecraft.world.level.ItemLike;
 import net.neoforged.neoforge.client.model.generators.ItemModelProvider;
 import net.neoforged.neoforge.common.data.ExistingFileHelper;
+import net.neoforged.neoforge.registries.DeferredItem;
 
-import static momo.dev.lollygag.registry.LItems.*;
+import static momo.dev.lollygag.registry.integration.LAetherIntegration.Base.*;
+
 
 public class LItemModelProvider extends ItemModelProvider {
     public LItemModelProvider(PackOutput output, ExistingFileHelper existingFileHelper) {
@@ -16,12 +17,12 @@ public class LItemModelProvider extends ItemModelProvider {
 
     @Override
     protected void registerModels() {
-        basic(AMBROSIUM);
+        basic(AMBROSIUM_ITEM);
     }
 
     @SafeVarargs
-    private void basic(ItemDefinition<? extends ItemLike>... items) {
-        for (ItemDefinition<? extends ItemLike> item : items) {
+    private void basic(DeferredItem<? extends ItemLike>... items) {
+        for (DeferredItem<? extends ItemLike> item : items) {
             basicItem(item.get());
         }
     }

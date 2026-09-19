@@ -30,7 +30,7 @@ public class LBlockTagsProvider extends BlockTagsProvider {
 
     @Override
     protected void addTags(HolderLookup.Provider provider) {
-        for (BlockDefinition<?> def : BLOCK_DEFINITIONS) {
+        for (DeferredBlock<?> def : BLOCKS_REGISTERED) {
             Block block = def.get();
             if (block instanceof SaplingBlock) tag(BlockTags.SAPLINGS, def);
             if (block instanceof LeavesBlock) tag(BlockTags.LEAVES, def);

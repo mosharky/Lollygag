@@ -4,6 +4,7 @@ import com.aetherteam.aether.block.AetherBlocks;
 import com.farcr.nomansland.NoMansLand;
 import com.farcr.nomansland.common.block.torches.ExtinguishableBlockPairing;
 import com.farcr.nomansland.common.registry.NMLRegistries;
+import momo.dev.lollygag.registry.integration.LAetherIntegration;
 import net.minecraft.core.Holder;
 import net.minecraft.world.level.block.Block;
 import net.neoforged.neoforge.registries.DeferredHolder;
@@ -27,11 +28,11 @@ public class LExtinguishables {
         if (!registered) {
             registered = true;
 
-            register("caelic_torch", AetherBlocks.AMBROSIUM_TORCH, LBlocks.EXTINGUISHED_CAELIC_TORCH.getDelegate());
-            register("caelic_torch_wall", AetherBlocks.AMBROSIUM_WALL_TORCH, LBlocks.EXTINGUISHED_CAELIC_WALL_TORCH.getDelegate());
+            register("caelic_torch", AetherBlocks.AMBROSIUM_TORCH, LAetherIntegration.NoMansLand.EXTINGUISHED_CAELIC_TORCH.getDelegate());
+            register("caelic_torch_wall", AetherBlocks.AMBROSIUM_WALL_TORCH, LAetherIntegration.NoMansLand.EXTINGUISHED_CAELIC_WALL_TORCH.getDelegate());
 
-            register("sconce_caelic_torch", LBlocks.SCONCE_CAELIC_TORCH.getDelegate(), LBlocks.EXTINGUISHED_SCONCE_CAELIC_TORCH.getDelegate());
-            register("sconce_caelic_wall_torch", LBlocks.SCONCE_CAELIC_WALL_TORCH.getDelegate(), LBlocks.EXTINGUISHED_SCONCE_CAELIC_WALL_TORCH.getDelegate());
+            register("sconce_caelic_torch", LAetherIntegration.NoMansLand.SCONCE_CAELIC_TORCH.getDelegate(), LAetherIntegration.NoMansLand.EXTINGUISHED_SCONCE_CAELIC_TORCH.getDelegate());
+            register("sconce_caelic_wall_torch", LAetherIntegration.NoMansLand.SCONCE_CAELIC_WALL_TORCH.getDelegate(), LAetherIntegration.NoMansLand.EXTINGUISHED_SCONCE_CAELIC_WALL_TORCH.getDelegate());
         } else {
             throw new IllegalStateException("Unable to register Extinguishables; Already registered!");
         }

@@ -2,6 +2,7 @@ package momo.dev.lollygag.common.block;
 
 import com.teamabnormals.autumnity.common.block.AutumnityJackOLanternBlock;
 import momo.dev.lollygag.registry.LBlocks;
+import momo.dev.lollygag.registry.integration.LAetherIntegration;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.pattern.BlockInWorld;
@@ -15,7 +16,7 @@ import java.util.function.Predicate;
 public class LJackOLanternBlock extends AutumnityJackOLanternBlock {
     @Nullable private BlockPattern snowGolemFull;
     @Nullable private BlockPattern ironGolemFull;
-    private static final Predicate<BlockState> IS_PUMPKIN = (state) -> state != null && (state.is(LBlocks.CAELIC_JACK_O_LANTERN));
+    private static final Predicate<BlockState> IS_PUMPKIN = (state) -> state != null && (state.is(LAetherIntegration.Autumnity.CAELIC_JACK_O_LANTERN));
 
     public LJackOLanternBlock(Properties properties) {
         super(properties);

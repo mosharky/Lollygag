@@ -10,7 +10,7 @@ public class LFlammables {
     public static void register() {
         FireBlock fireBlock = (FireBlock) Blocks.FIRE;
 
-        LBlocks.BLOCK_DEFINITIONS.forEach(block -> {
+        LBlocks.BLOCKS_REGISTERED.forEach(block -> {
             if (block.get() instanceof LeavesBlock) {
                 fireBlock.setFlammable(block.get(), 30, 60);
             }

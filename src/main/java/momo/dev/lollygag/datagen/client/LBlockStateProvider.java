@@ -1,7 +1,6 @@
 package momo.dev.lollygag.datagen.client;
 
 import com.farcr.nomansland.NoMansLand;
-import com.farcr.nomansland.common.definitions.BlockDefinition;
 import com.teamabnormals.blueprint.core.data.client.BlueprintBlockStateProvider;
 import com.teamabnormals.autumnity.common.block.AbstractLargePumpkinSliceBlock;
 import com.teamabnormals.autumnity.common.block.LargeJackOLanternSliceBlock;
@@ -43,6 +42,12 @@ import net.neoforged.neoforge.client.model.generators.ModelFile.UncheckedModelFi
 import java.util.function.Function;
 
 import static momo.dev.lollygag.registry.LBlocks.*;
+import static momo.dev.lollygag.registry.integration.LAetherIntegration.Base.*;
+import static momo.dev.lollygag.registry.integration.LAetherIntegration.CavernsAndChasms.*;
+import static momo.dev.lollygag.registry.integration.LAetherIntegration.Autumnity.*;
+import static momo.dev.lollygag.registry.integration.LAetherIntegration.BuzzierBees.*;
+import static momo.dev.lollygag.registry.integration.LAetherIntegration.NoMansLand.*;
+import static momo.dev.lollygag.registry.integration.LAetherIntegration.Incubation.*;
 
 public class LBlockStateProvider extends BlueprintBlockStateProvider {
     public LBlockStateProvider(PackOutput output, ExistingFileHelper existingFileHelper) {
@@ -57,9 +62,9 @@ public class LBlockStateProvider extends BlueprintBlockStateProvider {
         pebbles(HOLYSTONE_PEBBLES.get());
         pebbles(BLACKSTONE_PEBBLES.get());
 
-        coalBlock(AMBROSIUM.get());
-        ingotBlock(LEAD_INGOT.get());
-        ingotBlock(ELECTRUM_INGOT.get());
+        coalBlock(AMBROSIUM_PLACED.get());
+        ingotBlock(LEAD_INGOT_PLACED.get());
+        ingotBlock(ELECTRUM_INGOT_PLACED.get());
 
         fire(CAELIC_FIRE.get());
         campfire(CAELIC_CAMPFIRE.get());
@@ -100,12 +105,12 @@ public class LBlockStateProvider extends BlueprintBlockStateProvider {
         nestBlocks("white_moa", TWIG_WHITE_MOA_NEST, HAY_WHITE_MOA_NEST);
     }
 
-    public void nestBlocks(String eggType, BlockDefinition<BirdNestBlock> twigNest, BlockDefinition<BirdNestBlock> hayNest) {
+    public void nestBlocks(String eggType, DeferredBlock<Block> twigNest, DeferredBlock<Block> hayNest) {
         this.eggNest(eggType, IncubationBlocks.TWIG_NEST, twigNest);
         this.eggNest(eggType, IncubationBlocks.HAY_NEST, hayNest);
     }
 
-    public void eggNest(String eggType, DeferredBlock<Block> base, BlockDefinition<BirdNestBlock> nest) {
+    public void eggNest(String eggType, DeferredBlock<Block> base, DeferredBlock<Block> nest) {
         if (eggType != null) {
             MultiPartBlockStateBuilder builder = this.getMultipartBuilder(nest.get()).part().modelFile(new UncheckedModelFile(blockTexture(base.get()))).addModel().end();
             String[] names = new String[]{"one", "two", "three", "four", "five", "six"};
@@ -439,8 +444,8 @@ public class LBlockStateProvider extends BlueprintBlockStateProvider {
     }
 
     @SafeVarargs
-    public final void basics(BlockDefinition<? extends Block>... defs) {
-        for (BlockDefinition<? extends Block> def : defs) {
+    public final void basics(DeferredBlock<? extends Block>... defs) {
+        for (DeferredBlock<? extends Block> def : defs) {
             simpleBlockWithItem(def.get(), cubeAll(def.get()));
         }
     }
@@ -471,7 +476,7 @@ public class LBlockStateProvider extends BlueprintBlockStateProvider {
         this.flatBlockItem(block, this.modLoc("block/" + name(block) + "_top"));
     }
 
-    public void dwarfSpruce(LDwarfSpruceHeadBlock headBlock, LDwarfSprucePlantBlock plantBlock) {
+    public void dwarfSpruce(Block headBlock, Block plantBlock) {
         String name = name(headBlock);
         getVariantBuilder(headBlock).forAllStates(state -> {
             String suffix = state.getValue(LDwarfSpruceHeadBlock.TOP) ? "_top" : "";
@@ -1438,7 +1443,7 @@ public class LBlockStateProvider extends BlueprintBlockStateProvider {
         return key(block).getPath();
     }
 
-    private String name(BlockDefinition block) {
-        return key(block.block()).getPath();
+    private String name(DeferredBlock block) {
+        return key((Block) block.get()).getPath();
     }
 }

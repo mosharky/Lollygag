@@ -1,6 +1,8 @@
 package momo.dev.lollygag;
 
 import momo.dev.lollygag.registry.*;
+import momo.dev.lollygag.registry.integration.LAetherIntegration;
+import momo.dev.lollygag.registry.integration.Mods;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.neoforged.fml.ModContainer;
@@ -25,8 +27,18 @@ public class Lollygag {
         LParticleTypes.PARTICLE_TYPES.register(bus);
 
         LBlocks.BLOCKS.register(bus);
-        LExtinguishables.EXTINGUISHABLES.register(bus);
         LItems.ITEMS.register(bus);
+
+        if (Mods.AETHER.isLoaded()) {
+            LAetherIntegration.Base.register();
+            if (Mods.CAVERNS_AND_CHASMS.isLoaded()) LAetherIntegration.CavernsAndChasms.register();
+            if (Mods.AUTUMNITY.isLoaded()) LAetherIntegration.Autumnity.register();
+            if (Mods.BUZZIER_BEES.isLoaded()) LAetherIntegration.BuzzierBees.register();
+            if (Mods.NOMANSLAND.isLoaded()) LAetherIntegration.NoMansLand.register();
+            if (Mods.INCUBATION.isLoaded()) LAetherIntegration.Incubation.register();
+        }
+
+        LExtinguishables.EXTINGUISHABLES.register(bus);
     }
 
     private void commonSetup(final FMLCommonSetupEvent event) {
@@ -37,7 +49,9 @@ public class Lollygag {
 
     // probably temporary
     private void addBlockEntityBlocks(final BlockEntityTypeAddBlocksEvent event) {
-        event.modify(BlockEntityType.CAMPFIRE, LBlocks.CAELIC_CAMPFIRE.get());
+        if (LAetherIntegration.Base.isLoaded()) {
+            event.modify(BlockEntityType.CAMPFIRE, LAetherIntegration.Base.CAELIC_CAMPFIRE.get());
+        }
     }
 
     public static ResourceLocation loc(String path) {
