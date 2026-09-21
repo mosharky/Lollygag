@@ -7,7 +7,7 @@ import net.neoforged.neoforge.client.model.generators.ItemModelProvider;
 import net.neoforged.neoforge.common.data.ExistingFileHelper;
 import net.neoforged.neoforge.registries.DeferredItem;
 
-import static momo.dev.lollygag.registry.integration.LAetherIntegration.Base.*;
+import static momo.dev.lollygag.registry.integration.aether.AetherBase.*;
 
 
 public class LItemModelProvider extends ItemModelProvider {

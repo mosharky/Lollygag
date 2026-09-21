@@ -22,6 +22,15 @@ import org.jetbrains.annotations.Nullable;
 import java.util.concurrent.CompletableFuture;
 
 import static momo.dev.lollygag.registry.LBlocks.*;
+import static momo.dev.lollygag.registry.integration.aether.AetherBase.*;
+import static momo.dev.lollygag.registry.integration.aether.AetherCnC.*;
+import static momo.dev.lollygag.registry.integration.aether.AetherAutumnity.*;
+import static momo.dev.lollygag.registry.integration.aether.AetherBB.*;
+import static momo.dev.lollygag.registry.integration.aether.AetherNML.*;
+import static momo.dev.lollygag.registry.integration.aether.AetherIncubation.*;
+import static momo.dev.lollygag.registry.integration.BFIntegration.*;
+import static momo.dev.lollygag.registry.integration.NMLIntegration.*;
+import static momo.dev.lollygag.registry.integration.OreganizedIntegration.*;
 
 public class LBlockTagsProvider extends BlockTagsProvider {
     public LBlockTagsProvider(PackOutput output, CompletableFuture<HolderLookup.Provider> lookupProvider, @Nullable ExistingFileHelper existingFileHelper) {

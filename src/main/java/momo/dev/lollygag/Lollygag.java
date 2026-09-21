@@ -1,8 +1,11 @@
 package momo.dev.lollygag;
 
 import momo.dev.lollygag.registry.*;
-import momo.dev.lollygag.registry.integration.LAetherIntegration;
+import momo.dev.lollygag.registry.integration.BFIntegration;
 import momo.dev.lollygag.registry.integration.Mods;
+import momo.dev.lollygag.registry.integration.NMLIntegration;
+import momo.dev.lollygag.registry.integration.OreganizedIntegration;
+import momo.dev.lollygag.registry.integration.aether.*;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.neoforged.fml.ModContainer;
@@ -30,13 +33,17 @@ public class Lollygag {
         LItems.ITEMS.register(bus);
 
         if (Mods.AETHER.isLoaded()) {
-            LAetherIntegration.Base.register();
-            if (Mods.CAVERNS_AND_CHASMS.isLoaded()) LAetherIntegration.CavernsAndChasms.register();
-            if (Mods.AUTUMNITY.isLoaded()) LAetherIntegration.Autumnity.register();
-            if (Mods.BUZZIER_BEES.isLoaded()) LAetherIntegration.BuzzierBees.register();
-            if (Mods.NOMANSLAND.isLoaded()) LAetherIntegration.NoMansLand.register();
-            if (Mods.INCUBATION.isLoaded()) LAetherIntegration.Incubation.register();
+            AetherBase.register();
+            if (Mods.CAVERNS_AND_CHASMS.isLoaded()) AetherCnC.register();
+            if (Mods.AUTUMNITY.isLoaded()) AetherAutumnity.register();
+            if (Mods.BUZZIER_BEES.isLoaded()) AetherBB.register();
+            if (Mods.NOMANSLAND.isLoaded()) AetherNML.register();
+            if (Mods.INCUBATION.isLoaded()) AetherIncubation.register();
         }
+
+        if (Mods.NOMANSLAND.isLoaded()) NMLIntegration.register();
+        if (Mods.OREGANIZED.isLoaded()) OreganizedIntegration.register();
+        if (Mods.BOUNTIFULFARES.isLoaded()) BFIntegration.register();
 
         LExtinguishables.EXTINGUISHABLES.register(bus);
     }
@@ -49,8 +56,8 @@ public class Lollygag {
 
     // probably temporary
     private void addBlockEntityBlocks(final BlockEntityTypeAddBlocksEvent event) {
-        if (LAetherIntegration.Base.isLoaded()) {
-            event.modify(BlockEntityType.CAMPFIRE, LAetherIntegration.Base.CAELIC_CAMPFIRE.get());
+        if (Mods.AETHER.isLoaded()) {
+            event.modify(BlockEntityType.CAMPFIRE, AetherBase.CAELIC_CAMPFIRE.get());
         }
     }
 

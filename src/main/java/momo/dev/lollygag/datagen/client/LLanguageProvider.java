@@ -12,7 +12,7 @@ import net.neoforged.neoforge.registries.DeferredItem;
 
 import java.util.List;
 
-import static momo.dev.lollygag.registry.integration.LAetherIntegration.Autumnity.*;
+import static momo.dev.lollygag.registry.integration.aether.AetherAutumnity.*;
 
 public class LLanguageProvider extends LanguageProvider {
     public LLanguageProvider(PackOutput output) {
