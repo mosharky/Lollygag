@@ -1,7 +1,16 @@
 {
   "values": [
-    "lollygag:potted_aspen_sapling",
-    "lollygag:potted_birch_sapling",
-    "lollygag:potted_pear_sapling"
+    {
+      "id": "lollygag:potted_aspen_sapling",
+      "required": false
+    },
+    {
+      "id": "lollygag:potted_birch_sapling",
+      "required": false
+    },
+    {
+      "id": "lollygag:potted_pear_sapling",
+      "required": false
+    }
   ]
 }

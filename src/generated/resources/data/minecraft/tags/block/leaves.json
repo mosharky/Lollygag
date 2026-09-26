@@ -1,9 +1,24 @@
 {
   "values": [
-    "lollygag:dead_leaves",
-    "lollygag:aspen_leaves",
-    "lollygag:birch_leaves",
-    "lollygag:pear_leaves",
-    "lollygag:flowering_pear_leaves"
+    {
+      "id": "lollygag:dead_leaves",
+      "required": false
+    },
+    {
+      "id": "lollygag:aspen_leaves",
+      "required": false
+    },
+    {
+      "id": "lollygag:birch_leaves",
+      "required": false
+    },
+    {
+      "id": "lollygag:pear_leaves",
+      "required": false
+    },
+    {
+      "id": "lollygag:flowering_pear_leaves",
+      "required": false
+    }
   ]
 }

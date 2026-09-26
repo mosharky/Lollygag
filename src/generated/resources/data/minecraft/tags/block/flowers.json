@@ -1,5 +1,8 @@
 {
   "values": [
-    "lollygag:flowering_pear_leaves"
+    {
+      "id": "lollygag:flowering_pear_leaves",
+      "required": false
+    }
   ]
 }

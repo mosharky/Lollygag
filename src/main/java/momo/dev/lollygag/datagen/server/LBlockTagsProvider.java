@@ -1,7 +1,6 @@
 package momo.dev.lollygag.datagen.server;
 
 import com.aetherteam.aether.block.AetherBlocks;
-import com.farcr.nomansland.common.definitions.BlockDefinition;
 import com.teamabnormals.buzzier_bees.common.block.SpecialCandleBlock;
 import com.teamabnormals.buzzier_bees.common.block.SpecialCandleCakeBlock;
 import momo.dev.lollygag.Lollygag;
@@ -22,15 +21,7 @@ import org.jetbrains.annotations.Nullable;
 import java.util.concurrent.CompletableFuture;
 
 import static momo.dev.lollygag.registry.LBlocks.*;
-import static momo.dev.lollygag.registry.integration.aether.AetherBase.*;
-import static momo.dev.lollygag.registry.integration.aether.AetherCnC.*;
-import static momo.dev.lollygag.registry.integration.aether.AetherAutumnity.*;
-import static momo.dev.lollygag.registry.integration.aether.AetherBB.*;
-import static momo.dev.lollygag.registry.integration.aether.AetherNML.*;
-import static momo.dev.lollygag.registry.integration.aether.AetherIncubation.*;
 import static momo.dev.lollygag.registry.integration.BFIntegration.*;
-import static momo.dev.lollygag.registry.integration.NMLIntegration.*;
-import static momo.dev.lollygag.registry.integration.OreganizedIntegration.*;
 
 public class LBlockTagsProvider extends BlockTagsProvider {
     public LBlockTagsProvider(PackOutput output, CompletableFuture<HolderLookup.Provider> lookupProvider, @Nullable ExistingFileHelper existingFileHelper) {
@@ -73,9 +64,8 @@ public class LBlockTagsProvider extends BlockTagsProvider {
     private void tag(TagKey<Block> tag, Object... values) {
         IntrinsicTagAppender<Block> blockTag = tag(tag);
         for (Object value : values) {
-            if (value instanceof BlockDefinition<?> def) blockTag.add(def.block());
-            else if (value instanceof DeferredBlock<?> deferredBlock) blockTag.add(deferredBlock.get());
-            else if (value instanceof TagKey<?> key) blockTag.addTag((TagKey<Block>) key);
+            if (value instanceof DeferredBlock<?> deferredBlock) blockTag.addOptional(deferredBlock.getId());
+            else if (value instanceof TagKey<?> key) blockTag.addOptionalTag((TagKey<Block>) key);
             else throw new IllegalArgumentException("Unsupported tag entry: " + value);
         }
     }

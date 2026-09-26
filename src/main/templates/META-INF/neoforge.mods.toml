@@ -40,98 +40,77 @@ side="BOTH"
 
 [[dependencies.${mod_id}]]
 modId="nomansland"
-type="required"
+type="optional"
 versionRange="[1,)"
 ordering="AFTER"
 side="BOTH"
 
 [[dependencies.${mod_id}]]
 modId="bountifulfares"
-type="required"
+type="optional"
 versionRange="[1,)"
 ordering="AFTER"
 side="BOTH"
 
 [[dependencies.${mod_id}]]
 modId="aether"
-type="required"
+type="optional"
 versionRange="[1,)"
 ordering="AFTER"
 side="BOTH"
 
 [[dependencies.${mod_id}]]
 modId="accessories"
-type="required"
+type="optional"
 versionRange="[1,)"
 ordering="AFTER"
 side="BOTH"
 
 [[dependencies.${mod_id}]]
 modId="blueprint"
-type="required"
+type="optional"
 versionRange="[1,)"
 ordering="AFTER"
 side="BOTH"
 
 [[dependencies.${mod_id}]]
 modId="environmental"
-type="required"
+type="optional"
 versionRange="[1,)"
 ordering="AFTER"
 side="BOTH"
 
 [[dependencies.${mod_id}]]
 modId="incubation"
-type="required"
-versionRange="[1,)"
-ordering="AFTER"
-side="BOTH"
-
-[[dependencies.${mod_id}]]
-modId="allurement"
-type="required"
+type="optional"
 versionRange="[1,)"
 ordering="AFTER"
 side="BOTH"
 
 [[dependencies.${mod_id}]]
 modId="caverns_and_chasms"
-type="required"
-versionRange="[1,)"
-ordering="AFTER"
-side="BOTH"
-
-[[dependencies.${mod_id}]]
-modId="gallery"
-type="required"
+type="optional"
 versionRange="[1,)"
 ordering="AFTER"
 side="BOTH"
 
 [[dependencies.${mod_id}]]
 modId="autumnity"
-type="required"
+type="optional"
 versionRange="[1,)"
 ordering="AFTER"
 side="BOTH"
 
 [[dependencies.${mod_id}]]
 modId="oreganized"
-type="required"
-versionRange="[1,)"
-ordering="AFTER"
-side="BOTH"
-
-[[dependencies.${mod_id}]]
-modId="geckolib"
-type="required"
+type="optional"
 versionRange="[1,)"
 ordering="AFTER"
 side="BOTH"
 
 [[dependencies.${mod_id}]]
 modId="naturalist"
-type="required"
+type="optional"
 versionRange="[1,)"
 ordering="AFTER"
 side="BOTH"

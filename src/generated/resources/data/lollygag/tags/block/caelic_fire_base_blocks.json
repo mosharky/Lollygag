@@ -1,7 +1,16 @@
 {
   "values": [
-    "aether:aether_dirt",
-    "aether:aether_grass_block",
-    "aether:holystone"
+    {
+      "id": "aether:aether_dirt",
+      "required": false
+    },
+    {
+      "id": "aether:aether_grass_block",
+      "required": false
+    },
+    {
+      "id": "aether:holystone",
+      "required": false
+    }
   ]
 }

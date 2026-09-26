@@ -1,5 +1,8 @@
 {
   "values": [
-    "#lollygag:pear_leaves"
+    {
+      "id": "#lollygag:pear_leaves",
+      "required": false
+    }
   ]
 }

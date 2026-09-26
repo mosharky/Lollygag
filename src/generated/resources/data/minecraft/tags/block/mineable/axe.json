@@ -1,16 +1,52 @@
 {
   "values": [
-    "lollygag:aspen_log",
-    "lollygag:aspen_wood",
-    "lollygag:stripped_aspen_log",
-    "lollygag:stripped_aspen_wood",
-    "lollygag:birch_log",
-    "lollygag:birch_wood",
-    "lollygag:stripped_birch_log",
-    "lollygag:stripped_birch_wood",
-    "lollygag:pear_log",
-    "lollygag:pear_wood",
-    "lollygag:stripped_pear_log",
-    "lollygag:stripped_pear_wood"
+    {
+      "id": "lollygag:aspen_log",
+      "required": false
+    },
+    {
+      "id": "lollygag:aspen_wood",
+      "required": false
+    },
+    {
+      "id": "lollygag:stripped_aspen_log",
+      "required": false
+    },
+    {
+      "id": "lollygag:stripped_aspen_wood",
+      "required": false
+    },
+    {
+      "id": "lollygag:birch_log",
+      "required": false
+    },
+    {
+      "id": "lollygag:birch_wood",
+      "required": false
+    },
+    {
+      "id": "lollygag:stripped_birch_log",
+      "required": false
+    },
+    {
+      "id": "lollygag:stripped_birch_wood",
+      "required": false
+    },
+    {
+      "id": "lollygag:pear_log",
+      "required": false
+    },
+    {
+      "id": "lollygag:pear_wood",
+      "required": false
+    },
+    {
+      "id": "lollygag:stripped_pear_log",
+      "required": false
+    },
+    {
+      "id": "lollygag:stripped_pear_wood",
+      "required": false
+    }
   ]
 }

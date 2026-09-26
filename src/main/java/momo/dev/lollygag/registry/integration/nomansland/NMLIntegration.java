@@ -1,4 +1,4 @@
-package momo.dev.lollygag.registry.integration;
+package momo.dev.lollygag.registry.integration.nomansland;
 
 import com.farcr.nomansland.common.block.GroundPickupBlock;
 import com.farcr.nomansland.common.registry.blocks.NMLBlocks;

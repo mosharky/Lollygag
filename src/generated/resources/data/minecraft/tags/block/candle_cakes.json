@@ -1,5 +1,8 @@
 {
   "values": [
-    "lollygag:caelic_candle_cake"
+    {
+      "id": "lollygag:caelic_candle_cake",
+      "required": false
+    }
   ]
 }

@@ -1,8 +1,20 @@
 {
   "values": [
-    "lollygag:aspen_log",
-    "lollygag:stripped_aspen_log",
-    "lollygag:aspen_wood",
-    "lollygag:stripped_aspen_wood"
+    {
+      "id": "lollygag:aspen_log",
+      "required": false
+    },
+    {
+      "id": "lollygag:stripped_aspen_log",
+      "required": false
+    },
+    {
+      "id": "lollygag:aspen_wood",
+      "required": false
+    },
+    {
+      "id": "lollygag:stripped_aspen_wood",
+      "required": false
+    }
   ]
 }

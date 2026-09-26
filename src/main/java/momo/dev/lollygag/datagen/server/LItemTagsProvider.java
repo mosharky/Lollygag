@@ -32,7 +32,7 @@ import static momo.dev.lollygag.registry.integration.aether.AetherBB.*;
 import static momo.dev.lollygag.registry.integration.aether.AetherNML.*;
 import static momo.dev.lollygag.registry.integration.aether.AetherIncubation.*;
 import static momo.dev.lollygag.registry.integration.BFIntegration.*;
-import static momo.dev.lollygag.registry.integration.NMLIntegration.*;
+import static momo.dev.lollygag.registry.integration.nomansland.NMLIntegration.*;
 import static momo.dev.lollygag.registry.integration.OreganizedIntegration.*;
 
 public class LItemTagsProvider extends ItemTagsProvider {
@@ -66,7 +66,7 @@ public class LItemTagsProvider extends ItemTagsProvider {
     private void tag(TagKey<Item> tag, Object... values) {
         IntrinsicTagAppender<Item> itemTag = tag(tag);
         for (Object value : values) {
-            if (value instanceof BlockDefinition<?> def) itemTag.add(def.item());
+            if (value instanceof DeferredBlock<?> def) itemTag.add(def.get().asItem());
             else if (value instanceof DeferredItem<?> deferredItem) itemTag.add(deferredItem.get());
             else if (value instanceof TagKey<?> key) itemTag.addTag((TagKey<Item>) key);
             else throw new IllegalArgumentException("Unsupported tag entry: " + value);

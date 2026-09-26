@@ -1,7 +1,16 @@
 {
   "values": [
-    "lollygag:aspen_sapling",
-    "lollygag:birch_sapling",
-    "lollygag:pear_sapling"
+    {
+      "id": "lollygag:aspen_sapling",
+      "required": false
+    },
+    {
+      "id": "lollygag:birch_sapling",
+      "required": false
+    },
+    {
+      "id": "lollygag:pear_sapling",
+      "required": false
+    }
   ]
 }

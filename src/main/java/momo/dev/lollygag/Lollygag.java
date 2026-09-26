@@ -3,7 +3,8 @@ package momo.dev.lollygag;
 import momo.dev.lollygag.registry.*;
 import momo.dev.lollygag.registry.integration.BFIntegration;
 import momo.dev.lollygag.registry.integration.Mods;
-import momo.dev.lollygag.registry.integration.NMLIntegration;
+import momo.dev.lollygag.registry.integration.nomansland.LExtinguishables;
+import momo.dev.lollygag.registry.integration.nomansland.NMLIntegration;
 import momo.dev.lollygag.registry.integration.OreganizedIntegration;
 import momo.dev.lollygag.registry.integration.aether.*;
 import net.minecraft.resources.ResourceLocation;
@@ -17,6 +18,7 @@ import com.mojang.logging.LogUtils;
 
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.fml.common.Mod;
+import net.neoforged.neoforge.common.NeoForge;
 
 @Mod(Lollygag.MODID)
 public class Lollygag {
@@ -37,15 +39,20 @@ public class Lollygag {
             if (Mods.CAVERNS_AND_CHASMS.isLoaded()) AetherCnC.register();
             if (Mods.AUTUMNITY.isLoaded()) AetherAutumnity.register();
             if (Mods.BUZZIER_BEES.isLoaded()) AetherBB.register();
-            if (Mods.NOMANSLAND.isLoaded()) AetherNML.register();
-            if (Mods.INCUBATION.isLoaded()) AetherIncubation.register();
+            if (Mods.NOMANSLAND.isLoaded()) {
+                AetherNML.register();
+                LExtinguishables.register();
+                LExtinguishables.EXTINGUISHABLES.register(bus);
+            }
+            if (Mods.INCUBATION.isLoaded()) {
+                AetherIncubation.register();
+                NeoForge.EVENT_BUS.register(AetherIncubation.Events.class);
+            }
         }
 
         if (Mods.NOMANSLAND.isLoaded()) NMLIntegration.register();
-        if (Mods.OREGANIZED.isLoaded()) OreganizedIntegration.register();
+        if (Mods.OREGANIZED.isLoaded() && Mods.CAVERNS_AND_CHASMS.isLoaded()) OreganizedIntegration.register();
         if (Mods.BOUNTIFULFARES.isLoaded()) BFIntegration.register();
-
-        LExtinguishables.EXTINGUISHABLES.register(bus);
     }
 
     private void commonSetup(final FMLCommonSetupEvent event) {
