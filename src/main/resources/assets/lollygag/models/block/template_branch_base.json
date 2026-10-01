@@ -1,0 +1,33 @@
+{
+	"format_version": "1.9.0",
+	"credit": "Made by mo_shark",
+	"elements": [
+		{
+			"name": "connector",
+			"from": [4, 12, 4],
+			"to": [12, 16.01, 12],
+			"rotation": {"angle": 0, "axis": "y", "origin": [8, 8, 8]},
+			"color": 5,
+			"faces": {
+				"north": {"uv": [0, 0, 8, 4], "texture": "#missing"},
+				"east": {"uv": [0, 0, 8, 4], "texture": "#missing"},
+				"south": {"uv": [0, 0, 8, 4], "texture": "#missing"},
+				"west": {"uv": [0, 0, 8, 4], "texture": "#missing"},
+				"up": {"uv": [8, 0, 16, 8], "texture": "#missing", "cullface": "up"}
+			}
+		},
+		{
+			"name": "base",
+			"from": [4, 4, 4],
+			"to": [12, 12, 12],
+			"rotation": {"angle": 0, "axis": "y", "origin": [8, 8, 8]},
+			"color": 0,
+			"faces": {
+				"north": {"uv": [0, 4, 8, 12], "texture": "#missing"},
+				"east": {"uv": [0, 4, 8, 12], "texture": "#missing"},
+				"south": {"uv": [0, 4, 8, 12], "texture": "#missing"},
+				"west": {"uv": [0, 4, 8, 12], "texture": "#missing"}
+			}
+		}
+	]
+}
