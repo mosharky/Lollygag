@@ -1,7 +1,5 @@
 package momo.dev.lollygag.mixin;
 
-import momo.dev.lollygag.registry.integration.Mods;
-import net.neoforged.fml.ModList;
 import net.neoforged.fml.loading.FMLLoader;
 import net.neoforged.fml.loading.moddiscovery.ModInfo;
 import org.objectweb.asm.tree.ClassNode;
@@ -13,14 +11,19 @@ import java.util.Set;
 import java.util.stream.Collectors;
 
 public final class LollygagMixinPlugin implements IMixinConfigPlugin {
+    // Use raw mod IDs here rather than the Mods enum: mixin plugins run very early,
+    // and touching classes that reference Minecraft types can load them before mixins apply.
+    private static final String MIXIN_PACKAGE = "momo.dev.lollygag.mixin.";
+
     private Set<String> presentMods;
 
+    @Override
     public boolean shouldApplyMixin(String targetClassName, String mixinClassName) {
-        if (mixinClassName.startsWith("momo.dev.lollygag.mixin.aether.")) {
-            return presentMods.contains(Mods.AETHER.name());
+        if (mixinClassName.startsWith(MIXIN_PACKAGE + "aether.")) {
+            return presentMods.contains("aether");
         }
-        if (mixinClassName.startsWith("momo.dev.lollygag.mixin.bountifulfares.")) {
-            return presentMods.contains(Mods.BOUNTIFULFARES.name());
+        if (mixinClassName.startsWith(MIXIN_PACKAGE + "bountifulfares.")) {
+            return presentMods.contains("bountifulfares");
         }
         return true;
     }
