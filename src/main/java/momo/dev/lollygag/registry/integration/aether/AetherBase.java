@@ -1,6 +1,7 @@
 package momo.dev.lollygag.registry.integration.aether;
 
 import com.aetherteam.aether.block.AetherBlocks;
+import com.aetherteam.aether.event.PlacementBanEvent;
 import momo.dev.lollygag.common.block.CaelicFireBlock;
 import momo.dev.lollygag.common.block.LDwarfSpruceHeadBlock;
 import momo.dev.lollygag.common.block.LDwarfSprucePlantBlock;
@@ -8,9 +9,12 @@ import momo.dev.lollygag.registry.LBlocks;
 import momo.dev.lollygag.registry.LItems;
 import net.minecraft.util.valueproviders.UniformInt;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.Items;
 import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.material.MapColor;
 import net.minecraft.world.level.material.PushReaction;
+import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.neoforge.registries.DeferredBlock;
 import net.neoforged.neoforge.registries.DeferredItem;
 
@@ -37,6 +41,17 @@ public class AetherBase {
     public static final DeferredBlock<Block> GOLDEN_OAK_BRANCH = LBlocks.registerBranch("golden_oak", () -> AetherBlocks.GOLDEN_OAK_LOG.get());
 
     public static final DeferredItem<Item> AMBROSIUM_ITEM = LItems.register("ambrosium", () -> new Item(new Item.Properties()));
+
+    public static class Events {
+        // Fire lit in the Aether becomes caelic fire, so igniters no longer need to be banned there
+        @SubscribeEvent
+        public static void onCheckItemBanned(PlacementBanEvent.CheckItem event) {
+            ItemStack stack = event.getItemStack();
+            if (stack.is(Items.FLINT_AND_STEEL) || stack.is(Items.FIRE_CHARGE)) {
+                event.setBanned(false);
+            }
+        }
+    }
 
     public static void register() {}
 }

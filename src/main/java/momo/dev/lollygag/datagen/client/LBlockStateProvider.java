@@ -29,6 +29,7 @@ import net.minecraft.world.level.block.CandleBlock;
 import net.minecraft.world.level.block.CandleCakeBlock;
 import net.minecraft.world.level.block.CampfireBlock;
 import net.minecraft.world.level.block.DoublePlantBlock;
+import net.minecraft.world.level.block.FireBlock;
 import net.minecraft.world.level.block.HorizontalDirectionalBlock;
 import net.minecraft.world.level.block.LanternBlock;
 import net.minecraft.world.level.block.SlabBlock;
@@ -313,31 +314,38 @@ public class LBlockStateProvider extends BlueprintBlockStateProvider {
         ModelFile side1 = fireModel(name + "_side1", "template_fire_side", name + "_1");
         ModelFile sideAlt0 = fireModel(name + "_side_alt0", "template_fire_side_alt", name + "_0");
         ModelFile sideAlt1 = fireModel(name + "_side_alt1", "template_fire_side_alt", name + "_1");
+        ModelFile up0 = fireModel(name + "_up0", "template_fire_up", name + "_0");
+        ModelFile up1 = fireModel(name + "_up1", "template_fire_up", name + "_1");
+        ModelFile upAlt0 = fireModel(name + "_up_alt0", "template_fire_up_alt", name + "_0");
+        ModelFile upAlt1 = fireModel(name + "_up_alt1", "template_fire_up_alt", name + "_1");
 
+        // Mirrors vanilla fire: floor and all sides when attached to nothing, otherwise only the burning faces
         MultiPartBlockStateBuilder builder = getMultipartBuilder(block);
         builder.part()
                 .modelFile(floor0).nextModel()
-                .modelFile(floor1).addModel();
+                .modelFile(floor1).addModel()
+                .condition(FireBlock.NORTH, false).condition(FireBlock.EAST, false).condition(FireBlock.SOUTH, false)
+                .condition(FireBlock.WEST, false).condition(FireBlock.UP, false);
+        BooleanProperty[] sides = {FireBlock.NORTH, FireBlock.EAST, FireBlock.SOUTH, FireBlock.WEST};
+        for (int i = 0; i < sides.length; i++) {
+            int rotation = i * 90;
+            MultiPartBlockStateBuilder.PartBuilder part = builder.part()
+                    .modelFile(side0).rotationY(rotation).nextModel()
+                    .modelFile(side1).rotationY(rotation).nextModel()
+                    .modelFile(sideAlt0).rotationY(rotation).nextModel()
+                    .modelFile(sideAlt1).rotationY(rotation).addModel()
+                    .useOr();
+            part.nestedGroup().condition(sides[i], true).end();
+            part.nestedGroup()
+                    .condition(FireBlock.NORTH, false).condition(FireBlock.EAST, false).condition(FireBlock.SOUTH, false)
+                    .condition(FireBlock.WEST, false).condition(FireBlock.UP, false).end();
+        }
         builder.part()
-                .modelFile(side0).nextModel()
-                .modelFile(side1).nextModel()
-                .modelFile(sideAlt0).nextModel()
-                .modelFile(sideAlt1).addModel();
-        builder.part()
-                .modelFile(side0).rotationY(90).nextModel()
-                .modelFile(side1).rotationY(90).nextModel()
-                .modelFile(sideAlt0).rotationY(90).nextModel()
-                .modelFile(sideAlt1).rotationY(90).addModel();
-        builder.part()
-                .modelFile(side0).rotationY(180).nextModel()
-                .modelFile(side1).rotationY(180).nextModel()
-                .modelFile(sideAlt0).rotationY(180).nextModel()
-                .modelFile(sideAlt1).rotationY(180).addModel();
-        builder.part()
-                .modelFile(side0).rotationY(270).nextModel()
-                .modelFile(side1).rotationY(270).nextModel()
-                .modelFile(sideAlt0).rotationY(270).nextModel()
-                .modelFile(sideAlt1).rotationY(270).addModel();
+                .modelFile(up0).nextModel()
+                .modelFile(up1).nextModel()
+                .modelFile(upAlt0).nextModel()
+                .modelFile(upAlt1).addModel()
+                .condition(FireBlock.UP, true);
     }
 
     private ModelFile fireModel(String modelName, String parentName, String textureName) {

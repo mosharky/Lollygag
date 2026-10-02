@@ -36,6 +36,7 @@ public class Lollygag {
 
         if (Mods.AETHER.isLoaded()) {
             AetherBase.register();
+            NeoForge.EVENT_BUS.register(AetherBase.Events.class);
             if (Mods.CAVERNS_AND_CHASMS.isLoaded()) AetherCnC.register();
             if (Mods.AUTUMNITY.isLoaded()) AetherAutumnity.register();
             if (Mods.BUZZIER_BEES.isLoaded()) AetherBB.register();

@@ -4,6 +4,8 @@
   "plugin": "momo.dev.lollygag.mixin.LollygagMixinPlugin",
   "compatibilityLevel": "JAVA_21",
   "mixins": [
+    "aether.BaseFireBlockMixin",
+    "aether.FireBlockMixin",
     "aether.MoaAccessor",
     "bountifulfares.HangingAppleBlockMixin",
     "bountifulfares.HangingGoldenAppleBlockMixin",
