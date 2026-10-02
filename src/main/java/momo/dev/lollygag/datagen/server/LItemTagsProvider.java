@@ -2,10 +2,7 @@ package momo.dev.lollygag.datagen.server;
 
 import com.farcr.nomansland.common.definitions.BlockDefinition;
 import com.teamabnormals.buzzier_bees.common.block.SpecialCandleBlock;
-import com.teamabnormals.caverns_and_chasms.common.block.IngotBlock;
-import com.teamabnormals.caverns_and_chasms.core.other.tags.CCItemTags;
 import momo.dev.lollygag.Lollygag;
-import momo.dev.lollygag.common.block.CoalBlockFixed;
 import momo.dev.lollygag.registry.LTags;
 import net.hecco.bountifulfares.definition.block.custom.FruitLogBlock;
 import net.hecco.bountifulfares.definition.block.custom.StrippedFruitLogBlock;
@@ -48,8 +45,6 @@ public class LItemTagsProvider extends ItemTagsProvider {
             if (block instanceof LeavesBlock) tag(ItemTags.LEAVES, def);
             if (block instanceof FruitLogBlock) tag(ItemTags.LOGS_THAT_BURN, def);
             if (block instanceof StrippedFruitLogBlock) tag(ItemTags.LOGS_THAT_BURN, def);
-            if (block instanceof IngotBlock) tag(CCItemTags.PLACEABLE_ITEMS, def);  // TODO: will need to change to datamap when CNC updates
-            if (block instanceof CoalBlockFixed) tag(CCItemTags.PLACEABLE_ITEMS, def);  // TODO: will need to change to datamap when CNC updates
             if (block instanceof SpecialCandleBlock) tag(ItemTags.CANDLES, def);
         }
 

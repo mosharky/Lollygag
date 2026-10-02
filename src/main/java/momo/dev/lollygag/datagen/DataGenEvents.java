@@ -6,6 +6,7 @@ import momo.dev.lollygag.datagen.client.LItemModelProvider;
 import momo.dev.lollygag.datagen.client.LLanguageProvider;
 import momo.dev.lollygag.datagen.client.LParticleDescriptionProvider;
 import momo.dev.lollygag.datagen.server.LBlockTagsProvider;
+import momo.dev.lollygag.datagen.server.LDataMapProvider;
 import momo.dev.lollygag.datagen.server.LItemTagsProvider;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.DataGenerator;
@@ -41,5 +42,7 @@ public class DataGenEvents {
         // tags
         BlockTagsProvider blockTagsProvider = generator.addProvider(server, new LBlockTagsProvider(output, lookupProvider, existingFileHelper));
         generator.addProvider(server, new LItemTagsProvider(output, lookupProvider, blockTagsProvider.contentsGetter(), existingFileHelper));
+        // data maps
+        generator.addProvider(server, new LDataMapProvider(output, lookupProvider));
     }
 }

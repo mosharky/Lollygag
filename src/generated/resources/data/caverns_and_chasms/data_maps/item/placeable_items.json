@@ -1,0 +1,13 @@
+{
+  "values": {
+    "lollygag:ambrosium": {
+      "placed_item": "lollygag:ambrosium_placed"
+    },
+    "oreganized:electrum_ingot": {
+      "placed_item": "lollygag:electrum_ingot_placed"
+    },
+    "oreganized:lead_ingot": {
+      "placed_item": "lollygag:lead_ingot_placed"
+    }
+  }
+}
