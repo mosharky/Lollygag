@@ -14,6 +14,7 @@ import com.teamabnormals.caverns_and_chasms.core.CavernsAndChasms;
 import com.teamabnormals.incubation.common.block.BirdNestBlock;
 import com.teamabnormals.incubation.core.registry.IncubationBlocks;
 import momo.dev.lollygag.Lollygag;
+import momo.dev.lollygag.common.block.BranchBlock;
 import momo.dev.lollygag.common.block.LDwarfSpruceHeadBlock;
 import momo.dev.lollygag.common.block.LDwarfSprucePlantBlock;
 import net.hecco.bountifulfares.BountifulFares;
@@ -41,6 +42,7 @@ import net.neoforged.neoforge.client.model.generators.ModelFile.UncheckedModelFi
 
 import java.util.function.Function;
 
+import static momo.dev.lollygag.registry.LBlocks.*;
 import static momo.dev.lollygag.registry.integration.aether.AetherBase.*;
 import static momo.dev.lollygag.registry.integration.aether.AetherCnC.*;
 import static momo.dev.lollygag.registry.integration.aether.AetherAutumnity.*;
@@ -105,6 +107,183 @@ public class LBlockStateProvider extends BlueprintBlockStateProvider {
         nestBlocks("black_moa", TWIG_BLACK_MOA_NEST, HAY_BLACK_MOA_NEST);
         nestBlocks("blue_moa", TWIG_BLUE_MOA_NEST, HAY_BLUE_MOA_NEST);
         nestBlocks("white_moa", TWIG_WHITE_MOA_NEST, HAY_WHITE_MOA_NEST);
+
+        branch(OAK_BRANCH);
+        branch(STRIPPED_OAK_BRANCH);
+    }
+
+    // Same model as a Bountiful Fares stripped fruit log
+    public void branch(DeferredBlock<Block> block) {
+        String name = name(block.get());
+        ResourceLocation texture = modLoc("block/" + name);
+        ModelFile log = branchModel(name, "template_branch", texture);
+        ModelFile noside = branchModel(name + "_noside", "template_branch_noside", texture);
+        ModelFile otherside = branchModel(name + "_otherside", "template_branch_otherside", texture);
+        ModelFile side = branchModel(name + "_side", "template_branch_side", texture);
+
+        getMultipartBuilder(block.get())
+            .part()
+                .modelFile(otherside).rotationX(90).addModel()
+                .condition(BranchBlock.NORTH, true).end()
+            .part()
+                .modelFile(side).rotationX(90).rotationY(90).addModel()
+                .condition(BranchBlock.EAST, true).end()
+            .part()
+                .modelFile(side).rotationX(270).addModel()
+                .condition(BranchBlock.SOUTH, true).end()
+            .part()
+                .modelFile(otherside).rotationX(270).rotationY(90).addModel()
+                .condition(BranchBlock.WEST, true).end()
+            .part()
+                .modelFile(side).addModel()
+                .condition(BranchBlock.UP, true).end()
+            .part()
+                .modelFile(otherside).rotationX(180).addModel()
+                .condition(BranchBlock.DOWN, true).end()
+            // Y axis
+            .part()
+                .modelFile(log).addModel()
+                .condition(BranchBlock.AXIS, Direction.Axis.Y).end()
+            .part()
+                .modelFile(noside).addModel()
+                .condition(BranchBlock.AXIS, Direction.Axis.Y)
+                .condition(BranchBlock.DOWN, true)
+                .condition(BranchBlock.UP, false)
+                .end()
+            .part()
+                .modelFile(noside).rotationX(180).addModel()
+                .condition(BranchBlock.AXIS, Direction.Axis.Y)
+                .condition(BranchBlock.DOWN, false)
+                .condition(BranchBlock.UP, true)
+                .end()
+            .part()
+                .modelFile(side).addModel()
+                .condition(BranchBlock.AXIS, Direction.Axis.Y)
+                .condition(BranchBlock.DOWN, false)
+                .condition(BranchBlock.UP, false)
+                .end()
+            .part()
+                .modelFile(side).addModel()
+                .condition(BranchBlock.AXIS, Direction.Axis.Y)
+                .condition(BranchBlock.EAST, false)
+                .condition(BranchBlock.NORTH, false)
+                .condition(BranchBlock.SOUTH, false)
+                .condition(BranchBlock.UP, false)
+                .condition(BranchBlock.WEST, false)
+                .end()
+            .part()
+                .modelFile(otherside).rotationX(180).addModel()
+                .condition(BranchBlock.AXIS, Direction.Axis.Y)
+                .condition(BranchBlock.DOWN, false)
+                .condition(BranchBlock.UP, false)
+                .end()
+            .part()
+                .modelFile(otherside).rotationX(180).addModel()
+                .condition(BranchBlock.AXIS, Direction.Axis.Y)
+                .condition(BranchBlock.DOWN, false)
+                .condition(BranchBlock.EAST, false)
+                .condition(BranchBlock.NORTH, false)
+                .condition(BranchBlock.SOUTH, false)
+                .condition(BranchBlock.WEST, false)
+                .end()
+            // X axis
+            .part()
+                .modelFile(log).rotationX(90).rotationY(90).addModel()
+                .condition(BranchBlock.AXIS, Direction.Axis.X)
+                .end()
+            .part()
+                .modelFile(noside).rotationX(90).rotationY(90).addModel()
+                .condition(BranchBlock.AXIS, Direction.Axis.X)
+                .condition(BranchBlock.EAST, false)
+                .end()
+            .part()
+                .modelFile(noside).rotationX(270).rotationY(90).addModel()
+                .condition(BranchBlock.AXIS, Direction.Axis.X)
+                .condition(BranchBlock.WEST, false)
+                .end()
+            .part()
+                .modelFile(side).rotationX(90).rotationY(90).addModel()
+                .condition(BranchBlock.AXIS, Direction.Axis.X)
+                .condition(BranchBlock.EAST, false)
+                .condition(BranchBlock.WEST, false)
+                .end()
+            .part()
+                .modelFile(side).rotationX(90).rotationY(90).addModel()
+                .condition(BranchBlock.AXIS, Direction.Axis.X)
+                .condition(BranchBlock.DOWN, false)
+                .condition(BranchBlock.EAST, false)
+                .condition(BranchBlock.NORTH, false)
+                .condition(BranchBlock.SOUTH, false)
+                .condition(BranchBlock.UP, false)
+                .end()
+            .part()
+                .modelFile(otherside).rotationX(270).rotationY(90).addModel()
+                .condition(BranchBlock.AXIS, Direction.Axis.X)
+                .condition(BranchBlock.EAST, false)
+                .condition(BranchBlock.WEST, false)
+                .end()
+            .part()
+                .modelFile(otherside).rotationX(270).rotationY(90).addModel()
+                .condition(BranchBlock.AXIS, Direction.Axis.X)
+                .condition(BranchBlock.DOWN, false)
+                .condition(BranchBlock.NORTH, false)
+                .condition(BranchBlock.SOUTH, false)
+                .condition(BranchBlock.UP, false)
+                .condition(BranchBlock.WEST, false)
+                .end()
+            // Z axis
+            .part()
+                .modelFile(log).rotationX(270).addModel()
+                .condition(BranchBlock.AXIS, Direction.Axis.Z)
+                .end()
+            .part()
+                .modelFile(noside).rotationX(270).rotationY(180).addModel()
+                .condition(BranchBlock.AXIS, Direction.Axis.Z)
+                .condition(BranchBlock.NORTH, false)
+                .end()
+            .part()
+                .modelFile(noside).rotationX(270).addModel()
+                .condition(BranchBlock.AXIS, Direction.Axis.Z)
+                .condition(BranchBlock.SOUTH, false)
+                .end()
+            .part()
+                .modelFile(otherside).rotationX(90).addModel()
+                .condition(BranchBlock.AXIS, Direction.Axis.Z)
+                .condition(BranchBlock.NORTH, false)
+                .condition(BranchBlock.SOUTH, false)
+                .end()
+            .part()
+                .modelFile(otherside).rotationX(90).addModel()
+                .condition(BranchBlock.AXIS, Direction.Axis.Z)
+                .condition(BranchBlock.DOWN, false)
+                .condition(BranchBlock.EAST, false)
+                .condition(BranchBlock.NORTH, false)
+                .condition(BranchBlock.UP, false)
+                .condition(BranchBlock.WEST, false)
+                .end()
+            .part()
+                .modelFile(side).rotationX(270).addModel()
+                .condition(BranchBlock.AXIS, Direction.Axis.Z)
+                .condition(BranchBlock.NORTH, false)
+                .condition(BranchBlock.SOUTH, false)
+                .end()
+            .part()
+                .modelFile(side).rotationX(270).addModel()
+                .condition(BranchBlock.AXIS, Direction.Axis.Z)
+                .condition(BranchBlock.DOWN, false)
+                .condition(BranchBlock.EAST, false)
+                .condition(BranchBlock.SOUTH, false)
+                .condition(BranchBlock.UP, false)
+                .condition(BranchBlock.WEST, false)
+                .end();
+
+        itemModels().withExistingParent(name, modLoc("item/template_branch")).texture("texture", texture).renderType("cutout");
+    }
+
+    private ModelFile branchModel(String modelName, String template, ResourceLocation texture) {
+        return models().withExistingParent(modelName, modLoc("block/" + template))
+                .texture("texture", texture)
+                .renderType("cutout");
     }
 
     public void nestBlocks(String eggType, DeferredBlock<Block> twigNest, DeferredBlock<Block> hayNest) {
