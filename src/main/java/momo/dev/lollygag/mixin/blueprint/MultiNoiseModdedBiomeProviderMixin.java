@@ -1,5 +1,6 @@
 package momo.dev.lollygag.mixin.blueprint;
 
+import com.farcr.nomansland.NMLConfig;
 import com.farcr.nomansland.common.registry.worldgen.NMLBiomes;
 import com.teamabnormals.blueprint.core.registry.BlueprintBiomes;
 import com.teamabnormals.blueprint.core.util.BiomeUtil;
@@ -21,6 +22,8 @@ public class MultiNoiseModdedBiomeProviderMixin {
     // ModdedBiomeSource calls the ScopedDensityFunctionContext overload; the Climate.Sampler one is unused.
     @Inject(method = "getNoiseBiome(IIILcom/teamabnormals/blueprint/core/util/BiomeUtil$ScopedDensityFunctionContext;Lnet/minecraft/world/level/biome/BiomeSource;Lnet/minecraft/core/Registry;)Lnet/minecraft/core/Holder;", at = @At("RETURN"), cancellable = true)
     private void lollygag$placeNMLCaves(int x, int y, int z, BiomeUtil.ScopedDensityFunctionContext context, BiomeSource originalSource, Registry<Biome> registry, CallbackInfoReturnable<Holder<Biome>> cir) {
+        if (!NMLConfig.CAVES_BIOMES.get()) return;
+
         Holder<Biome> biome = cir.getReturnValue();
         if (biome.is(BlueprintBiomes.ORIGINAL_SOURCE_MARKER) || biome.is(Tags.Biomes.IS_UNDERGROUND)) return;
 

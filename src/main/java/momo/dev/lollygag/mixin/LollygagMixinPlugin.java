@@ -30,7 +30,8 @@ public final class LollygagMixinPlugin implements IMixinConfigPlugin {
     private static final List<Option> OPTIONS = List.of(
             new Option("NMLCavesInBlueprintSlices", "blueprint.MultiNoiseModdedBiomeProviderMixin",
                     "Lets No Man's Land's generic cave biomes generate underneath biomes placed by Blueprint's modded biome slices.\n"
-                            + "Only has an effect when Blueprint, No Man's Land, and a mod that uses Blueprint to place its biomes are installed.")
+                            + "Only has an effect when Blueprint, No Man's Land, and a mod that uses Blueprint to place its biomes are installed,\n"
+                            + "as well as cave biomes enabled in NML's config.")
     );
 
     private Set<String> presentMods;
