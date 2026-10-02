@@ -38,6 +38,8 @@ public class LBlocks {
     public static final DeferredBlock<Block> CHERRY_BRANCH = registerBranch("cherry", () -> Blocks.CHERRY_LOG, () -> Blocks.STRIPPED_CHERRY_LOG);
     public static final DeferredBlock<Block> CRIMSON_BRANCH = registerBranch("crimson", () -> Blocks.CRIMSON_STEM, () -> Blocks.STRIPPED_CRIMSON_STEM);
     public static final DeferredBlock<Block> WARPED_BRANCH = registerBranch("warped", () -> Blocks.WARPED_STEM, () -> Blocks.STRIPPED_WARPED_STEM);
+    // non wood
+    public static final DeferredBlock<Block> MUSHROOM_BRANCH = registerBranch("mushroom", () -> Blocks.MUSHROOM_STEM);
 
     // Registers "<wood>_branch" and "stripped_<wood>_branch", returning the unstripped branch
     public static DeferredBlock<Block> registerBranch(String wood, Supplier<Block> log, Supplier<Block> strippedLog) {
