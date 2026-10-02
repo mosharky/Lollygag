@@ -38,12 +38,12 @@ public class CaelicFireBlock extends FireBlock {
     }
 
     protected boolean canSurvive(BlockState state, LevelReader level, BlockPos pos) {
-        return canSurviveOnBlock(level.getBlockState(pos.below())) || (level.getBiome(pos).is(AetherTags.Biomes.IS_AETHER) && super.canSurvive(state, level, pos));
+        return canSurviveOnBlock(level.getBlockState(pos.below())) || (isInAether(level, pos) && super.canSurvive(state, level, pos));
     }
 
     protected void tick(BlockState state, ServerLevel level, BlockPos pos, RandomSource random) {
         // Outside the Aether it neither spreads nor burns out, like soul fire
-        if (level.getBiome(pos).is(AetherTags.Biomes.IS_AETHER)) {
+        if (isInAether(level, pos)) {
             super.tick(state, level, pos, random);
         }
     }
