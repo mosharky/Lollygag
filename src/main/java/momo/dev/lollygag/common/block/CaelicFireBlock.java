@@ -12,7 +12,7 @@ import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.FireBlock;
 import net.minecraft.world.level.block.state.BlockState;
 
-// Behaves like regular fire in ultracold (Aether) biomes, and like soul fire everywhere else
+// Behaves like regular fire in Aether biomes, and like soul fire everywhere else
 public class CaelicFireBlock extends FireBlock {
     public static final MapCodec<CaelicFireBlock> CODEC = simpleCodec(CaelicFireBlock::new);
 
