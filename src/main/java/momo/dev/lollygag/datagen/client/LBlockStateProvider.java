@@ -108,12 +108,13 @@ public class LBlockStateProvider extends BlueprintBlockStateProvider {
         nestBlocks("blue_moa", TWIG_BLUE_MOA_NEST, HAY_BLUE_MOA_NEST);
         nestBlocks("white_moa", TWIG_WHITE_MOA_NEST, HAY_WHITE_MOA_NEST);
 
-        branch(OAK_BRANCH);
-        branch(STRIPPED_OAK_BRANCH);
+        for (DeferredBlock<? extends Block> def : BLOCKS_REGISTERED) {
+            if (def.get() instanceof BranchBlock) branch(def);
+        }
     }
 
     // Same model as a Bountiful Fares stripped fruit log
-    public void branch(DeferredBlock<Block> block) {
+    public void branch(DeferredBlock<? extends Block> block) {
         String name = name(block.get());
         ResourceLocation texture = modLoc("block/" + name);
         ModelFile log = branchModel(name, "template_branch", texture);

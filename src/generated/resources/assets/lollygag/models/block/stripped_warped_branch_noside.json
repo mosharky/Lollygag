@@ -1,0 +1,7 @@
+{
+  "parent": "lollygag:block/template_branch_noside",
+  "render_type": "minecraft:cutout",
+  "textures": {
+    "texture": "lollygag:block/stripped_warped_branch"
+  }
+}

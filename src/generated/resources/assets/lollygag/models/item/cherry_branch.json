@@ -1,0 +1,7 @@
+{
+  "parent": "lollygag:item/template_branch",
+  "render_type": "minecraft:cutout",
+  "textures": {
+    "texture": "lollygag:block/cherry_branch"
+  }
+}
