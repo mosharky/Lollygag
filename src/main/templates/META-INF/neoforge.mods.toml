@@ -69,7 +69,7 @@ side="BOTH"
 [[dependencies.${mod_id}]]
 modId="blueprint"
 type="optional"
-versionRange="[1,)"
+versionRange="[8.2.0,)"
 ordering="AFTER"
 side="BOTH"
 
@@ -90,7 +90,7 @@ side="BOTH"
 [[dependencies.${mod_id}]]
 modId="caverns_and_chasms"
 type="optional"
-versionRange="[1,)"
+versionRange="[3.0.1,)"
 ordering="AFTER"
 side="BOTH"
 
@@ -104,7 +104,7 @@ side="BOTH"
 [[dependencies.${mod_id}]]
 modId="oreganized"
 type="optional"
-versionRange="[1,)"
+versionRange="[5.3.0,)"
 ordering="AFTER"
 side="BOTH"
 
