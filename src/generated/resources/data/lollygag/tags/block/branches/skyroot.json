@@ -1,0 +1,12 @@
+{
+  "values": [
+    {
+      "id": "lollygag:stripped_skyroot_branch",
+      "required": false
+    },
+    {
+      "id": "lollygag:skyroot_branch",
+      "required": false
+    }
+  ]
+}

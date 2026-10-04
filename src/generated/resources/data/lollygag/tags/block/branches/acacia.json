@@ -1,0 +1,12 @@
+{
+  "values": [
+    {
+      "id": "lollygag:stripped_acacia_branch",
+      "required": false
+    },
+    {
+      "id": "lollygag:acacia_branch",
+      "required": false
+    }
+  ]
+}

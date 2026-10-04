@@ -1,0 +1,12 @@
+{
+  "values": [
+    {
+      "id": "lollygag:stripped_maple_branch",
+      "required": false
+    },
+    {
+      "id": "lollygag:maple_branch",
+      "required": false
+    }
+  ]
+}

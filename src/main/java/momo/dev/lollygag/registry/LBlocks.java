@@ -54,6 +54,11 @@ public class LBlocks {
         return branch;
     }
 
+    // The wood type a branch was registered with, e.g. "oak" for both oak_branch and stripped_oak_branch
+    public static String branchWood(DeferredBlock<?> branch) {
+        return branch.getId().getPath().replaceFirst("^stripped_", "").replaceFirst("_branch$", "");
+    }
+
 
     // Helpers (from NMLBlocks)
     public static <T extends Block> DeferredBlock<T> registerNoItem(String name, Supplier<T> block) {

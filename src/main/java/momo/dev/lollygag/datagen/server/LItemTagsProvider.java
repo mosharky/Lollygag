@@ -1,12 +1,14 @@
 package momo.dev.lollygag.datagen.server;
 
 import com.farcr.nomansland.common.definitions.BlockDefinition;
+import com.mojang.datafixers.util.Pair;
 import com.teamabnormals.buzzier_bees.common.block.SpecialCandleBlock;
 import momo.dev.lollygag.Lollygag;
 import momo.dev.lollygag.registry.LTags;
 import net.hecco.bountifulfares.definition.block.custom.FruitLogBlock;
 import net.hecco.bountifulfares.definition.block.custom.StrippedFruitLogBlock;
 import net.minecraft.core.HolderLookup;
+import net.minecraft.core.registries.Registries;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.tags.ItemTagsProvider;
 import net.minecraft.tags.ItemTags;
@@ -20,6 +22,7 @@ import net.neoforged.neoforge.registries.DeferredBlock;
 import net.neoforged.neoforge.registries.DeferredItem;
 
 import java.util.concurrent.CompletableFuture;
+import java.util.function.Supplier;
 
 import static momo.dev.lollygag.registry.LBlocks.*;
 import static momo.dev.lollygag.registry.integration.aether.AetherBase.*;
@@ -52,6 +55,10 @@ public class LItemTagsProvider extends ItemTagsProvider {
         copy(LTags.BLOCKS.BIRCH_LOGS, LTags.ITEMS.BIRCH_LOGS);
         copy(LTags.BLOCKS.PEAR_LOGS, LTags.ITEMS.PEAR_LOGS);
         copy(LTags.BLOCKS.PEAR_LEAVES, LTags.ITEMS.PEAR_LEAVES);
+
+        copy(LTags.BLOCKS.BRANCHES, LTags.ITEMS.BRANCHES);
+        BRANCHES.stream().map(pair -> branchWood(pair.getFirst())).distinct()
+                .forEach(wood -> copy(LTags.BLOCKS.branches(wood), LTags.ITEMS.branches(wood)));
 
         // vanilla tags
         tag(ItemTags.FLOWERS, FLOWERING_PEAR_LEAVES);

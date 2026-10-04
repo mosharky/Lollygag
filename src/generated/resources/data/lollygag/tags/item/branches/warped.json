@@ -1,0 +1,12 @@
+{
+  "values": [
+    {
+      "id": "lollygag:stripped_warped_branch",
+      "required": false
+    },
+    {
+      "id": "lollygag:warped_branch",
+      "required": false
+    }
+  ]
+}

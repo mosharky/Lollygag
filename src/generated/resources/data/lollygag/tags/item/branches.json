@@ -1,0 +1,132 @@
+{
+  "values": [
+    {
+      "id": "lollygag:stripped_oak_branch",
+      "required": false
+    },
+    {
+      "id": "lollygag:oak_branch",
+      "required": false
+    },
+    {
+      "id": "lollygag:stripped_spruce_branch",
+      "required": false
+    },
+    {
+      "id": "lollygag:spruce_branch",
+      "required": false
+    },
+    {
+      "id": "lollygag:stripped_birch_branch",
+      "required": false
+    },
+    {
+      "id": "lollygag:birch_branch",
+      "required": false
+    },
+    {
+      "id": "lollygag:stripped_jungle_branch",
+      "required": false
+    },
+    {
+      "id": "lollygag:jungle_branch",
+      "required": false
+    },
+    {
+      "id": "lollygag:stripped_acacia_branch",
+      "required": false
+    },
+    {
+      "id": "lollygag:acacia_branch",
+      "required": false
+    },
+    {
+      "id": "lollygag:stripped_dark_oak_branch",
+      "required": false
+    },
+    {
+      "id": "lollygag:dark_oak_branch",
+      "required": false
+    },
+    {
+      "id": "lollygag:stripped_mangrove_branch",
+      "required": false
+    },
+    {
+      "id": "lollygag:mangrove_branch",
+      "required": false
+    },
+    {
+      "id": "lollygag:stripped_cherry_branch",
+      "required": false
+    },
+    {
+      "id": "lollygag:cherry_branch",
+      "required": false
+    },
+    {
+      "id": "lollygag:stripped_crimson_branch",
+      "required": false
+    },
+    {
+      "id": "lollygag:crimson_branch",
+      "required": false
+    },
+    {
+      "id": "lollygag:stripped_warped_branch",
+      "required": false
+    },
+    {
+      "id": "lollygag:warped_branch",
+      "required": false
+    },
+    {
+      "id": "lollygag:mushroom_branch",
+      "required": false
+    },
+    {
+      "id": "lollygag:stripped_skyroot_branch",
+      "required": false
+    },
+    {
+      "id": "lollygag:skyroot_branch",
+      "required": false
+    },
+    {
+      "id": "lollygag:golden_oak_branch",
+      "required": false
+    },
+    {
+      "id": "lollygag:stripped_pine_branch",
+      "required": false
+    },
+    {
+      "id": "lollygag:pine_branch",
+      "required": false
+    },
+    {
+      "id": "lollygag:stripped_maple_branch",
+      "required": false
+    },
+    {
+      "id": "lollygag:maple_branch",
+      "required": false
+    },
+    {
+      "id": "lollygag:stripped_walnut_branch",
+      "required": false
+    },
+    {
+      "id": "lollygag:walnut_branch",
+      "required": false
+    },
+    {
+      "id": "lollygag:stripped_willow_branch",
+      "required": false
+    },
+    {
+      "id": "lollygag:willow_branch",
+      "required": false
+    }
+  ]
+}

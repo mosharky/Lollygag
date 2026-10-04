@@ -1,0 +1,12 @@
+{
+  "values": [
+    {
+      "id": "lollygag:stripped_crimson_branch",
+      "required": false
+    },
+    {
+      "id": "lollygag:crimson_branch",
+      "required": false
+    }
+  ]
+}

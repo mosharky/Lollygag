@@ -1,6 +1,7 @@
 package momo.dev.lollygag.datagen.server;
 
 import com.aetherteam.aether.block.AetherBlocks;
+import com.mojang.datafixers.util.Pair;
 import com.teamabnormals.buzzier_bees.common.block.SpecialCandleBlock;
 import com.teamabnormals.buzzier_bees.common.block.SpecialCandleCakeBlock;
 import momo.dev.lollygag.Lollygag;
@@ -19,6 +20,7 @@ import net.neoforged.neoforge.registries.DeferredBlock;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.concurrent.CompletableFuture;
+import java.util.function.Supplier;
 
 import static momo.dev.lollygag.registry.LBlocks.*;
 import static momo.dev.lollygag.registry.integration.BFIntegration.*;
@@ -48,6 +50,13 @@ public class LBlockTagsProvider extends BlockTagsProvider {
             }
         }
 
+        // Branches, plus a tag per wood type (e.g. oak_branch and stripped_oak_branch go in lollygag:branches/oak)
+        for (Pair<DeferredBlock<Block>, Supplier<Block>> pair : BRANCHES) {
+            DeferredBlock<Block> branch = pair.getFirst();
+            tag(LTags.BLOCKS.BRANCHES, branch);
+            tag(LTags.BLOCKS.branches(branchWood(branch)), branch);
+        }
+
         tag(LTags.BLOCKS.ASPEN_LOGS, ASPEN_LOG, STRIPPED_ASPEN_LOG, ASPEN_WOOD, STRIPPED_ASPEN_WOOD);
         tag(LTags.BLOCKS.BIRCH_LOGS, BIRCH_LOG, STRIPPED_BIRCH_LOG, BIRCH_WOOD, STRIPPED_BIRCH_WOOD);
         tag(LTags.BLOCKS.PEAR_LOGS, PEAR_LOG, STRIPPED_PEAR_LOG, PEAR_WOOD, STRIPPED_PEAR_WOOD);
@@ -58,6 +67,7 @@ public class LBlockTagsProvider extends BlockTagsProvider {
 
         // vanilla tags
         tag(BlockTags.FLOWERS, FLOWERING_PEAR_LEAVES);
+        tag(BlockTags.LOGS, LTags.BLOCKS.BRANCHES);
     }
 
     @SuppressWarnings("unchecked")

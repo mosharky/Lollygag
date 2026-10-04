@@ -1,0 +1,12 @@
+{
+  "values": [
+    {
+      "id": "lollygag:stripped_mangrove_branch",
+      "required": false
+    },
+    {
+      "id": "lollygag:mangrove_branch",
+      "required": false
+    }
+  ]
+}

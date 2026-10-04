@@ -15,6 +15,12 @@ public class LTags {
         public static final TagKey<Block> BIRCH_LOGS = blockTag("birch_logs");
         public static final TagKey<Block> PEAR_LOGS = blockTag("pear_logs");
         public static final TagKey<Block> PEAR_LEAVES = blockTag("pear_leaves");
+
+        public static final TagKey<Block> BRANCHES = blockTag("branches");
+        public static TagKey<Block> branches(String wood) {
+            return blockTag("branches/" + wood);
+        }
+
         public static final TagKey<Block> CAELIC_FIRE_BASE_BLOCKS = blockTag("caelic_fire_base_blocks");
         // For BountifulFares hanging fruits
         public static class CAN_HANG_ON {
@@ -37,6 +43,12 @@ public class LTags {
         public static final TagKey<Item> BIRCH_LOGS = itemTag("birch_logs");
         public static final TagKey<Item> PEAR_LOGS = itemTag("pear_logs");
         public static final TagKey<Item> PEAR_LEAVES = itemTag("pear_leaves");
+
+        public static final TagKey<Item> BRANCHES = itemTag("branches");
+        // e.g. lollygag:branches/oak
+        public static TagKey<Item> branches(String wood) {
+            return itemTag("branches/" + wood);
+        }
     }
 
     private static TagKey<Item> itemTag(String name) {
