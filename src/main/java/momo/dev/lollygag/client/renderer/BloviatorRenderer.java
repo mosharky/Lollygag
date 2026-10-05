@@ -31,7 +31,7 @@ import org.joml.Vector4f;
 import java.util.HashMap;
 import java.util.Map;
 
-// Ported from Cloud Storage
+// Ported from Cloud Storage by Alexthe668. Licensed under GPL-3.0, see LICENSE
 public class BloviatorRenderer extends MobRenderer<BloviatorEntity, BloviatorModel> {
     private static final ResourceLocation TEXTURE = Lollygag.loc("textures/entity/bloviator/bloviator.png");
     private static final ResourceLocation BLOWING_TEXTURE = Lollygag.loc("textures/entity/bloviator/bloviator_blowing.png");

@@ -182,6 +182,13 @@ var generateModMetadata = tasks.register("generateModMetadata", ProcessResources
 sourceSets.main.resources.srcDir generateModMetadata
 neoForge.ideSyncTask generateModMetadata
 
+// Ship the license texts with the jar, as GPL-3.0 requires for the Cloud Storage parts
+tasks.named('jar', Jar) {
+    from(['LICENSE', 'LICENSE-GPL-3.0']) {
+        into 'META-INF'
+    }
+}
+
 tasks.withType(JavaCompile).configureEach {
     options.encoding = 'UTF-8' // Use the UTF-8 charset for Java compilation
 }

@@ -38,7 +38,7 @@ import net.neoforged.neoforge.event.EventHooks;
 
 import javax.annotation.Nullable;
 
-// Ported from Cloud Storage
+// Ported from Cloud Storage by Alexthe668. Licensed under GPL-3.0, see LICENSE
 public class BloviatorEntity extends Monster {
     private static final EntityDataAccessor<Float> CLOUD_SCALE = SynchedEntityData.defineId(BloviatorEntity.class, EntityDataSerializers.FLOAT);
     private static final EntityDataAccessor<Integer> PUSH_ENTITY = SynchedEntityData.defineId(BloviatorEntity.class, EntityDataSerializers.INT);

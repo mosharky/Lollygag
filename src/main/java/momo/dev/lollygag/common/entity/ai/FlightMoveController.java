@@ -5,7 +5,7 @@ import net.minecraft.world.entity.Mob;
 import net.minecraft.world.entity.ai.control.MoveControl;
 import net.minecraft.world.phys.Vec3;
 
-// Ported from Cloud Storage
+// Ported from Cloud Storage by Alexthe668. Licensed under GPL-3.0, see LICENSE
 public class FlightMoveController extends MoveControl {
     private final Mob parentEntity;
     private final float maxTurnY;

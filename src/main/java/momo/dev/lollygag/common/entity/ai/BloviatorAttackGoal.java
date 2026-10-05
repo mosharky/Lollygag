@@ -7,7 +7,7 @@ import net.minecraft.world.phys.Vec3;
 
 import java.util.EnumSet;
 
-// Ported from Cloud Storage
+// Ported from Cloud Storage by Alexthe668. Licensed under GPL-3.0, see LICENSE
 public class BloviatorAttackGoal extends Goal {
     private final BloviatorEntity cloud;
     private boolean strafingClockwise;

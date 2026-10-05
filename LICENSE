@@ -1,0 +1,61 @@
+Lollygag is made up of parts under two licenses:
+
+- Code and assets ported from Cloud Storage are licensed under the GNU General Public License v3.0 (GPL-3.0)
+- Everything else is licensed under the MIT License, included below.
+
+================================================================================
+GPL-3.0: Bloviator (ported from Cloud Storage)
+================================================================================
+
+Cloud Storage by Alexthe668 and Yosh
+https://github.com/AlexModGuy/CloudStorage
+
+The Bloviator was ported from Cloud Storage to Minecraft 1.21.1 and NeoForge.
+The port updated the code to newer Minecraft and NeoForge APIs,
+renamed and moved classes and resources into the Lollygag namespace,
+removed features tied to other Cloud Storage content, and changed some
+rendering and save behavior.
+
+These files are licensed under GPL-3.0:
+
+Code (src/main/java/momo/dev/lollygag/):
+    - common/entity/BloviatorEntity.java
+    - common/entity/ai/BloviatorAttackGoal.java
+    - common/entity/ai/FlightMoveController.java
+    - common/entity/ai/FlyAroundGoal.java
+    - client/model/BloviatorModel.java
+    - client/renderer/BloviatorRenderer.java
+    - client/particle/BloviatorBreathParticle.java
+    - client/particle/StaticLightningParticle.java
+
+Assets (src/main/resources/assets/lollygag/):
+    - textures/entity/bloviator/
+    - sounds/entity/bloviator/
+    - sounds.json
+
+
+================================================================================
+MIT: everything else
+================================================================================
+
+MIT License
+
+Copyright (c) 2026 momo, Gareth
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.

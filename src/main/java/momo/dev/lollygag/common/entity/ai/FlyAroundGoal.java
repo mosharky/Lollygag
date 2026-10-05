@@ -11,7 +11,7 @@ import net.minecraft.world.phys.Vec3;
 import javax.annotation.Nullable;
 import java.util.EnumSet;
 
-// Ported from Cloud Storage
+// Ported from Cloud Storage by Alexthe668. Licensed under GPL-3.0, see LICENSE
 public class FlyAroundGoal extends Goal {
     private final Mob flyer;
     private final int rangeXZ;
