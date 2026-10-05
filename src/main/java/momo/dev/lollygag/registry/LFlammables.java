@@ -1,5 +1,6 @@
 package momo.dev.lollygag.registry;
 
+import momo.dev.lollygag.common.block.BranchBlock;
 import net.hecco.bountifulfares.definition.block.custom.FruitLogBlock;
 import net.hecco.bountifulfares.definition.block.custom.StrippedFruitLogBlock;
 import net.minecraft.world.level.block.Blocks;
@@ -15,6 +16,9 @@ public class LFlammables {
                 fireBlock.setFlammable(block.get(), 30, 60);
             }
             else if (block.get() instanceof FruitLogBlock || block.get() instanceof StrippedFruitLogBlock) {
+                fireBlock.setFlammable(block.get(), 10, 5);
+            }
+            else if (block.get() instanceof BranchBlock) {
                 fireBlock.setFlammable(block.get(), 10, 5);
             }
         });
