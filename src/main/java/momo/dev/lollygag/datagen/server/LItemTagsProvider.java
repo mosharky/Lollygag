@@ -56,8 +56,11 @@ public class LItemTagsProvider extends ItemTagsProvider {
         copy(LTags.BLOCKS.PEAR_LEAVES, LTags.ITEMS.PEAR_LEAVES);
 
         copy(LTags.BLOCKS.BRANCHES, LTags.ITEMS.BRANCHES);
-        BRANCHES.stream().map(pair -> branchWood(pair.getFirst())).distinct()
-                .forEach(wood -> copy(LTags.BLOCKS.branches(wood), LTags.ITEMS.branches(wood)));
+        for (Branch branch : BRANCHES) {
+            copy(TagKey.create(Registries.BLOCK, Lollygag.loc("branches/" + branch.wood())),
+                TagKey.create(Registries.ITEM, Lollygag.loc("branches/" + branch.wood()))
+            );
+        }
 
         // vanilla tags
         tag(ItemTags.FLOWERS, FLOWERING_PEAR_LEAVES);

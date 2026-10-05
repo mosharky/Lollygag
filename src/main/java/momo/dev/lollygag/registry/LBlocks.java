@@ -1,6 +1,5 @@
 package momo.dev.lollygag.registry;
 
-import com.mojang.datafixers.util.Pair;
 import momo.dev.lollygag.Lollygag;
 import momo.dev.lollygag.common.block.*;
 import net.minecraft.world.item.BlockItem;
@@ -12,6 +11,7 @@ import net.minecraft.world.level.material.MapColor;
 import net.minecraft.world.level.material.PushReaction;
 import net.neoforged.neoforge.registries.DeferredBlock;
 import net.neoforged.neoforge.registries.DeferredRegister;
+import org.jetbrains.annotations.Nullable;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -23,40 +23,57 @@ import static net.minecraft.world.level.block.state.BlockBehaviour.Properties.of
 public class LBlocks {
     public static final DeferredRegister.Blocks BLOCKS = DeferredRegister.createBlocks(Lollygag.MODID);
     public static List<DeferredBlock<?>> BLOCKS_REGISTERED = new ArrayList<>();
-    // Each branch paired with the log it's derived from
-    public static List<Pair<DeferredBlock<Block>, Supplier<Block>>> BRANCHES = new ArrayList<>();
+    public static List<Branch> BRANCHES = new ArrayList<>();
 
 
     // Branches
-    public static final DeferredBlock<Block> OAK_BRANCH = registerBranch("oak", () -> Blocks.OAK_LOG, () -> Blocks.STRIPPED_OAK_LOG);
-    public static final DeferredBlock<Block> SPRUCE_BRANCH = registerBranch("spruce", () -> Blocks.SPRUCE_LOG, () -> Blocks.STRIPPED_SPRUCE_LOG);
-    public static final DeferredBlock<Block> BIRCH_BRANCH = registerBranch("birch", () -> Blocks.BIRCH_LOG, () -> Blocks.STRIPPED_BIRCH_LOG);
-    public static final DeferredBlock<Block> JUNGLE_BRANCH = registerBranch("jungle", () -> Blocks.JUNGLE_LOG, () -> Blocks.STRIPPED_JUNGLE_LOG);
-    public static final DeferredBlock<Block> ACACIA_BRANCH = registerBranch("acacia", () -> Blocks.ACACIA_LOG, () -> Blocks.STRIPPED_ACACIA_LOG);
-    public static final DeferredBlock<Block> DARK_OAK_BRANCH = registerBranch("dark_oak", () -> Blocks.DARK_OAK_LOG, () -> Blocks.STRIPPED_DARK_OAK_LOG);
-    public static final DeferredBlock<Block> MANGROVE_BRANCH = registerBranch("mangrove", () -> Blocks.MANGROVE_LOG, () -> Blocks.STRIPPED_MANGROVE_LOG);
-    public static final DeferredBlock<Block> CHERRY_BRANCH = registerBranch("cherry", () -> Blocks.CHERRY_LOG, () -> Blocks.STRIPPED_CHERRY_LOG);
-    public static final DeferredBlock<Block> CRIMSON_BRANCH = registerBranch("crimson", () -> Blocks.CRIMSON_STEM, () -> Blocks.STRIPPED_CRIMSON_STEM);
-    public static final DeferredBlock<Block> WARPED_BRANCH = registerBranch("warped", () -> Blocks.WARPED_STEM, () -> Blocks.STRIPPED_WARPED_STEM);
+    public static final Branch OAK_BRANCH = registerBranch("oak", () -> Blocks.OAK_LOG, () -> Blocks.STRIPPED_OAK_LOG);
+    public static final Branch SPRUCE_BRANCH = registerBranch("spruce", () -> Blocks.SPRUCE_LOG, () -> Blocks.STRIPPED_SPRUCE_LOG);
+    public static final Branch BIRCH_BRANCH = registerBranch("birch", () -> Blocks.BIRCH_LOG, () -> Blocks.STRIPPED_BIRCH_LOG);
+    public static final Branch JUNGLE_BRANCH = registerBranch("jungle", () -> Blocks.JUNGLE_LOG, () -> Blocks.STRIPPED_JUNGLE_LOG);
+    public static final Branch ACACIA_BRANCH = registerBranch("acacia", () -> Blocks.ACACIA_LOG, () -> Blocks.STRIPPED_ACACIA_LOG);
+    public static final Branch DARK_OAK_BRANCH = registerBranch("dark_oak", () -> Blocks.DARK_OAK_LOG, () -> Blocks.STRIPPED_DARK_OAK_LOG);
+    public static final Branch MANGROVE_BRANCH = registerBranch("mangrove", () -> Blocks.MANGROVE_LOG, () -> Blocks.STRIPPED_MANGROVE_LOG);
+    public static final Branch CHERRY_BRANCH = registerBranch("cherry", () -> Blocks.CHERRY_LOG, () -> Blocks.STRIPPED_CHERRY_LOG);
+    public static final Branch CRIMSON_BRANCH = registerBranch("crimson", () -> Blocks.CRIMSON_STEM, () -> Blocks.STRIPPED_CRIMSON_STEM);
+    public static final Branch WARPED_BRANCH = registerBranch("warped", () -> Blocks.WARPED_STEM, () -> Blocks.STRIPPED_WARPED_STEM);
     // non wood
-    public static final DeferredBlock<Block> MUSHROOM_BRANCH = registerBranch("mushroom", () -> Blocks.MUSHROOM_STEM);
+    public static final Branch MUSHROOM_BRANCH = registerBranch("mushroom", () -> Blocks.MUSHROOM_STEM);
 
-    // Registers "<wood>_branch" and "stripped_<wood>_branch", returning the unstripped branch
-    public static DeferredBlock<Block> registerBranch(String wood, Supplier<Block> log, Supplier<Block> strippedLog) {
-        registerBranch("stripped_" + wood, strippedLog);
-        return registerBranch(wood, log);
+    /**
+     * A wood type's branch blocks and the logs they're derived from.
+     * strippedBranch and strippedLog are null for logs without a stripped variant of their own.
+     */
+    public record Branch(String wood, DeferredBlock<Block> branch, Supplier<Block> log,
+                         @Nullable DeferredBlock<Block> strippedBranch, @Nullable Supplier<Block> strippedLog) {
+        public boolean hasStripped() {
+            return strippedBranch != null;
+        }
+
+        // The branch blocks themselves, stripped one included if present
+        public List<DeferredBlock<Block>> blocks() {
+            return hasStripped() ? List.of(strippedBranch, branch) : List.of(branch);
+        }
+    }
+
+    // Registers "<wood>_branch" and "stripped_<wood>_branch"
+    public static Branch registerBranch(String wood, Supplier<Block> log, Supplier<Block> strippedLog) {
+        DeferredBlock<Block> strippedBranch = registerBranchBlock("stripped_" + wood + "_branch", strippedLog);
+        DeferredBlock<Block> branch = registerBranchBlock(wood + "_branch", log);
+        Branch set = new Branch(wood, branch, log, strippedBranch, strippedLog);
+        BRANCHES.add(set);
+        return set;
     }
 
     // For logs without a stripped variant of their own
-    public static DeferredBlock<Block> registerBranch(String wood, Supplier<Block> log) {
-        DeferredBlock<Block> branch = register(wood + "_branch", () -> new BranchBlock(ofFullCopy(log.get()).noOcclusion()));
-        BRANCHES.add(Pair.of(branch, log));
-        return branch;
+    public static Branch registerBranch(String wood, Supplier<Block> log) {
+        Branch set = new Branch(wood, registerBranchBlock(wood + "_branch", log), log, null, null);
+        BRANCHES.add(set);
+        return set;
     }
 
-    // The wood type a branch was registered with, e.g. "oak" for both oak_branch and stripped_oak_branch
-    public static String branchWood(DeferredBlock<?> branch) {
-        return branch.getId().getPath().replaceFirst("^stripped_", "").replaceFirst("_branch$", "");
+    private static DeferredBlock<Block> registerBranchBlock(String name, Supplier<Block> log) {
+        return register(name, () -> new BranchBlock(ofFullCopy(log.get()).noOcclusion()));
     }
 
 

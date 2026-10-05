@@ -36,9 +36,9 @@ public class AetherBase {
     public static final DeferredBlock<Block> HOLYSTONE_QUARTZ_ORE = LBlocks.register("holystone_quartz_ore", () -> new DropExperienceBlock(UniformInt.of(2, 5), ofFullCopy(AetherBlocks.AMBROSIUM_ORE.get())));
 
     // Branches
-    public static final DeferredBlock<Block> SKYROOT_BRANCH = LBlocks.registerBranch("skyroot", () -> AetherBlocks.SKYROOT_LOG.get(), () -> AetherBlocks.STRIPPED_SKYROOT_LOG.get());
+    public static final LBlocks.Branch SKYROOT_BRANCH = LBlocks.registerBranch("skyroot", () -> AetherBlocks.SKYROOT_LOG.get(), () -> AetherBlocks.STRIPPED_SKYROOT_LOG.get());
     // Golden oak strips into stripped skyroot, so it has no stripped branch of its own
-    public static final DeferredBlock<Block> GOLDEN_OAK_BRANCH = LBlocks.registerBranch("golden_oak", () -> AetherBlocks.GOLDEN_OAK_LOG.get());
+    public static final LBlocks.Branch GOLDEN_OAK_BRANCH = LBlocks.registerBranch("golden_oak", () -> AetherBlocks.GOLDEN_OAK_LOG.get());
 
     public static final DeferredItem<Item> AMBROSIUM_ITEM = LItems.register("ambrosium", () -> new Item(new Item.Properties()));
 

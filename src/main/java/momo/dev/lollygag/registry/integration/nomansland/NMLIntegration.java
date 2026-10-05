@@ -17,10 +17,10 @@ public class NMLIntegration {
     public static final DeferredBlock<Block> BLACKSTONE_PEBBLES = LBlocks.register("blackstone_pebbles", () -> new GroundPickupBlock(ofFullCopy(NMLBlocks.PEBBLES.get()).mapColor(MapColor.COLOR_BLACK)));
 
     // Branches
-    public static final DeferredBlock<Block> PINE_BRANCH = LBlocks.registerBranch("pine", () -> NMLBlocks.PINE.log().get(), () -> NMLBlocks.PINE.strippedLog().get());
-    public static final DeferredBlock<Block> MAPLE_BRANCH = LBlocks.registerBranch("maple", () -> NMLBlocks.MAPLE.log().get(), () -> NMLBlocks.MAPLE.strippedLog().get());
-    public static final DeferredBlock<Block> WALNUT_BRANCH = LBlocks.registerBranch("walnut", () -> NMLBlocks.WALNUT.log().get(), () -> NMLBlocks.WALNUT.strippedLog().get());
-    public static final DeferredBlock<Block> WILLOW_BRANCH = LBlocks.registerBranch("willow", () -> NMLBlocks.WILLOW.log().get(), () -> NMLBlocks.WILLOW.strippedLog().get());
+    public static final LBlocks.Branch PINE_BRANCH = LBlocks.registerBranch("pine", () -> NMLBlocks.PINE.log().get(), () -> NMLBlocks.PINE.strippedLog().get());
+    public static final LBlocks.Branch MAPLE_BRANCH = LBlocks.registerBranch("maple", () -> NMLBlocks.MAPLE.log().get(), () -> NMLBlocks.MAPLE.strippedLog().get());
+    public static final LBlocks.Branch WALNUT_BRANCH = LBlocks.registerBranch("walnut", () -> NMLBlocks.WALNUT.log().get(), () -> NMLBlocks.WALNUT.strippedLog().get());
+    public static final LBlocks.Branch WILLOW_BRANCH = LBlocks.registerBranch("willow", () -> NMLBlocks.WILLOW.log().get(), () -> NMLBlocks.WILLOW.strippedLog().get());
 
     public static void register() {}
 }

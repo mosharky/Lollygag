@@ -17,9 +17,6 @@ public class LTags {
         public static final TagKey<Block> PEAR_LEAVES = blockTag("pear_leaves");
 
         public static final TagKey<Block> BRANCHES = blockTag("branches");
-        public static TagKey<Block> branches(String wood) {
-            return blockTag("branches/" + wood);
-        }
 
         public static final TagKey<Block> CAELIC_FIRE_BASE_BLOCKS = blockTag("caelic_fire_base_blocks");
         // For BountifulFares hanging fruits

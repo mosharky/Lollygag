@@ -1,7 +1,6 @@
 package momo.dev.lollygag.datagen.server;
 
 import com.aetherteam.aether.block.AetherBlocks;
-import com.mojang.datafixers.util.Pair;
 import com.teamabnormals.buzzier_bees.common.block.SpecialCandleBlock;
 import com.teamabnormals.buzzier_bees.common.block.SpecialCandleCakeBlock;
 import momo.dev.lollygag.Lollygag;
@@ -10,6 +9,7 @@ import net.hecco.bountifulfares.definition.block.custom.FruitLogBlock;
 import net.hecco.bountifulfares.definition.block.custom.StrippedFruitLogBlock;
 import net.hecco.bountifulfares.registry.tags.BFBlockTags;
 import net.minecraft.core.HolderLookup;
+import net.minecraft.core.registries.Registries;
 import net.minecraft.data.PackOutput;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.tags.TagKey;
@@ -20,7 +20,6 @@ import net.neoforged.neoforge.registries.DeferredBlock;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.concurrent.CompletableFuture;
-import java.util.function.Supplier;
 
 import static momo.dev.lollygag.registry.LBlocks.*;
 import static momo.dev.lollygag.registry.integration.BFIntegration.*;
@@ -51,10 +50,11 @@ public class LBlockTagsProvider extends BlockTagsProvider {
         }
 
         // Branches, plus a tag per wood type (e.g. oak_branch and stripped_oak_branch go in lollygag:branches/oak)
-        for (Pair<DeferredBlock<Block>, Supplier<Block>> pair : BRANCHES) {
-            DeferredBlock<Block> branch = pair.getFirst();
-            tag(LTags.BLOCKS.BRANCHES, branch);
-            tag(LTags.BLOCKS.branches(branchWood(branch)), branch);
+        for (Branch branch : BRANCHES) {
+            for (DeferredBlock<Block> block : branch.blocks()) {
+                tag(LTags.BLOCKS.BRANCHES, block);
+                tag(TagKey.create(Registries.BLOCK, Lollygag.loc("branches/" + branch.wood())), block);
+            }
         }
 
         tag(LTags.BLOCKS.ASPEN_LOGS, ASPEN_LOG, STRIPPED_ASPEN_LOG, ASPEN_WOOD, STRIPPED_ASPEN_WOOD);
