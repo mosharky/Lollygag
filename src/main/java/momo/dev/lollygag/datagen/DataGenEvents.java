@@ -5,18 +5,23 @@ import momo.dev.lollygag.datagen.client.LBlockStateProvider;
 import momo.dev.lollygag.datagen.client.LItemModelProvider;
 import momo.dev.lollygag.datagen.client.LLanguageProvider;
 import momo.dev.lollygag.datagen.client.LParticleDescriptionProvider;
+import momo.dev.lollygag.datagen.server.LBlockLootSubProvider;
 import momo.dev.lollygag.datagen.server.LBlockTagsProvider;
 import momo.dev.lollygag.datagen.server.LDataMapProvider;
 import momo.dev.lollygag.datagen.server.LItemTagsProvider;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.data.PackOutput;
+import net.minecraft.data.loot.LootTableProvider;
+import net.minecraft.world.level.storage.loot.parameters.LootContextParamSets;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.common.data.BlockTagsProvider;
 import net.neoforged.neoforge.common.data.ExistingFileHelper;
 import net.neoforged.neoforge.data.event.GatherDataEvent;
 
+import java.util.List;
+import java.util.Set;
 import java.util.concurrent.CompletableFuture;
 
 @EventBusSubscriber(modid = Lollygag.MODID)
@@ -44,5 +49,9 @@ public class DataGenEvents {
         generator.addProvider(server, new LItemTagsProvider(output, lookupProvider, blockTagsProvider.contentsGetter(), existingFileHelper));
         // data maps
         generator.addProvider(server, new LDataMapProvider(output, lookupProvider));
+        // loot tables
+        generator.addProvider(server, new LootTableProvider(output, Set.of(), List.of(
+                new LootTableProvider.SubProviderEntry(LBlockLootSubProvider::new, LootContextParamSets.BLOCK)
+        ), lookupProvider));
     }
 }
