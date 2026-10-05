@@ -1,6 +1,5 @@
 package momo.dev.lollygag.datagen.server;
 
-import com.farcr.nomansland.common.definitions.BlockDefinition;
 import com.mojang.datafixers.util.Pair;
 import com.teamabnormals.buzzier_bees.common.block.SpecialCandleBlock;
 import momo.dev.lollygag.Lollygag;

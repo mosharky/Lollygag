@@ -1,5 +1,6 @@
 package momo.dev.lollygag.client;
 
+import momo.dev.lollygag.LConfig;
 import momo.dev.lollygag.Lollygag;
 import momo.dev.lollygag.registry.LBlocks;
 import momo.dev.lollygag.registry.integration.BFIntegration;
@@ -12,11 +13,23 @@ import net.minecraft.world.level.GrassColor;
 import net.neoforged.api.distmarker.Dist;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
+import net.neoforged.neoforge.client.event.EntityRenderersEvent;
 import net.neoforged.neoforge.client.event.RegisterColorHandlersEvent;
+import net.neoforged.neoforge.client.event.RegisterParticleProvidersEvent;
 
 
 @EventBusSubscriber(modid = Lollygag.MODID, value = Dist.CLIENT)
 public class ClientEvents {
+    @SubscribeEvent
+    public static void registerEntityRenderers(EntityRenderersEvent.RegisterRenderers event) {
+        if (LConfig.bloviatorEnabled()) CitadelClient.registerEntityRenderers(event);
+    }
+
+    @SubscribeEvent
+    public static void registerParticleProviders(RegisterParticleProvidersEvent event) {
+        if (LConfig.bloviatorEnabled()) CitadelClient.registerParticleProviders(event);
+    }
+
     @SubscribeEvent
     public static void registerItemColorHandlers(RegisterColorHandlersEvent.Item event) {
         if (Mods.AETHER.isLoaded()) {

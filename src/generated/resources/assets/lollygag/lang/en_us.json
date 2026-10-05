@@ -84,5 +84,11 @@
   "block.lollygag.walnut_branch": "Walnut Branch",
   "block.lollygag.warped_branch": "Warped Branch",
   "block.lollygag.willow_branch": "Willow Branch",
-  "item.lollygag.ambrosium": "Ambrosium"
+  "entity.lollygag.bloviator": "Bloviator",
+  "item.lollygag.ambrosium": "Ambrosium",
+  "item.lollygag.bloviator_spawn_egg": "Bloviator Spawn Egg",
+  "subtitles.lollygag.entity.bloviator.blow": "Bloviator exhales",
+  "subtitles.lollygag.entity.bloviator.hurt": "Bloviator groans",
+  "subtitles.lollygag.entity.bloviator.idle": "Bloviator grumbles",
+  "subtitles.lollygag.entity.bloviator.lightning": "Bloviator shocks"
 }

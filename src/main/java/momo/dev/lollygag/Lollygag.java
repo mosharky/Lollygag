@@ -2,6 +2,7 @@ package momo.dev.lollygag;
 
 import momo.dev.lollygag.registry.*;
 import momo.dev.lollygag.registry.integration.BFIntegration;
+import momo.dev.lollygag.registry.integration.CitadelIntegration;
 import momo.dev.lollygag.registry.integration.Mods;
 import momo.dev.lollygag.registry.integration.nomansland.LExtinguishables;
 import momo.dev.lollygag.registry.integration.nomansland.NMLIntegration;
@@ -10,6 +11,7 @@ import momo.dev.lollygag.registry.integration.aether.*;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.neoforged.fml.ModContainer;
+import net.neoforged.fml.config.ModConfig;
 import net.neoforged.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.neoforged.neoforge.event.BlockEntityTypeAddBlocksEvent;
 import org.slf4j.Logger;
@@ -28,11 +30,14 @@ public class Lollygag {
     public Lollygag(IEventBus bus, ModContainer container) {
         bus.addListener(this::commonSetup);
         bus.addListener(this::addBlockEntityBlocks);
+        container.registerConfig(ModConfig.Type.STARTUP, LConfig.SPEC);
 
         LParticleTypes.PARTICLE_TYPES.register(bus);
+        LSoundEvents.SOUND_EVENTS.register(bus);
 
         LBlocks.BLOCKS.register(bus);
         LItems.ITEMS.register(bus);
+        LEntityTypes.ENTITY_TYPES.register(bus);
 
         if (Mods.AETHER.isLoaded()) {
             AetherBase.register();
@@ -54,6 +59,10 @@ public class Lollygag {
         if (Mods.NOMANSLAND.isLoaded()) NMLIntegration.register();
         if (Mods.OREGANIZED.isLoaded() && Mods.CAVERNS_AND_CHASMS.isLoaded()) OreganizedIntegration.register();
         if (Mods.BOUNTIFULFARES.isLoaded()) BFIntegration.register();
+        if (LConfig.bloviatorEnabled()) {
+            CitadelIntegration.register();
+            bus.register(CitadelIntegration.Events.class);
+        }
     }
 
     private void commonSetup(final FMLCommonSetupEvent event) {

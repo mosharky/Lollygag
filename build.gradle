@@ -157,6 +157,8 @@ dependencies {
 
     implementation "maven.modrinth:geckolib:${geckolib_version}"
     implementation "maven.modrinth:naturalist:${naturalist_version}"
+
+    implementation "maven.modrinth:citadel:${citadel_version}"
 }
 
 // This block of code expands all declared replace properties in the specified resource targets.

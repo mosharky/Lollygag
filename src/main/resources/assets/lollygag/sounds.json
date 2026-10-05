@@ -1,0 +1,33 @@
+{
+  "entity.bloviator.idle": {
+    "sounds": [
+      "lollygag:entity/bloviator/idle_0",
+      "lollygag:entity/bloviator/idle_1",
+      "lollygag:entity/bloviator/idle_2"
+    ],
+    "subtitle": "subtitles.lollygag.entity.bloviator.idle"
+  },
+  "entity.bloviator.hurt": {
+    "sounds": [
+      "lollygag:entity/bloviator/hurt_0",
+      "lollygag:entity/bloviator/hurt_1"
+    ],
+    "subtitle": "subtitles.lollygag.entity.bloviator.hurt"
+  },
+  "entity.bloviator.blow": {
+    "sounds": [
+      "lollygag:entity/bloviator/blow_0",
+      "lollygag:entity/bloviator/blow_1",
+      "lollygag:entity/bloviator/blow_2"
+    ],
+    "subtitle": "subtitles.lollygag.entity.bloviator.blow"
+  },
+  "entity.bloviator.lightning": {
+    "sounds": [
+      "lollygag:entity/bloviator/lightning_0",
+      "lollygag:entity/bloviator/lightning_1",
+      "lollygag:entity/bloviator/lightning_2"
+    ],
+    "subtitle": "subtitles.lollygag.entity.bloviator.lightning"
+  }
+}

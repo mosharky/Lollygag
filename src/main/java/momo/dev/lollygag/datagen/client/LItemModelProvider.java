@@ -1,6 +1,8 @@
 package momo.dev.lollygag.datagen.client;
 
+import momo.dev.lollygag.LConfig;
 import momo.dev.lollygag.Lollygag;
+import momo.dev.lollygag.registry.integration.CitadelIntegration;
 import net.minecraft.data.PackOutput;
 import net.minecraft.world.level.ItemLike;
 import net.neoforged.neoforge.client.model.generators.ItemModelProvider;
@@ -18,6 +20,10 @@ public class LItemModelProvider extends ItemModelProvider {
     @Override
     protected void registerModels() {
         basic(AMBROSIUM_ITEM);
+
+        if (LConfig.bloviatorEnabled()) {
+            withExistingParent(CitadelIntegration.BLOVIATOR_SPAWN_EGG.getId().getPath(), mcLoc("item/template_spawn_egg"));
+        }
     }
 
     @SafeVarargs

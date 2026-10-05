@@ -2,11 +2,14 @@ package momo.dev.lollygag.datagen.client;
 
 import com.farcr.nomansland.common.block.torches.ExtinguishedTorchBlock;
 import com.teamabnormals.caverns_and_chasms.common.block.IngotBlock;
+import momo.dev.lollygag.LConfig;
 import momo.dev.lollygag.Lollygag;
 import momo.dev.lollygag.common.block.CoalBlockFixed;
 import momo.dev.lollygag.registry.LBlocks;
 import momo.dev.lollygag.registry.LItems;
+import momo.dev.lollygag.registry.integration.CitadelIntegration;
 import net.minecraft.data.PackOutput;
+import net.minecraft.sounds.SoundEvent;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.WallTorchBlock;
 import net.neoforged.neoforge.common.data.LanguageProvider;
@@ -69,6 +72,18 @@ public class LLanguageProvider extends LanguageProvider {
 
         for (DeferredBlock<?> def : LBlocks.BLOCKS_REGISTERED) this.add(def);
         for (DeferredItem<?> def : LItems.ITEMS_REGISTERED) this.add(def);
+
+        if (LConfig.bloviatorEnabled()) {
+            this.add(CitadelIntegration.BLOVIATOR.get(), "Bloviator");
+            this.addSubtitle(CitadelIntegration.BLOVIATOR_IDLE, "Bloviator grumbles");
+            this.addSubtitle(CitadelIntegration.BLOVIATOR_HURT, "Bloviator groans");
+            this.addSubtitle(CitadelIntegration.BLOVIATOR_BLOW, "Bloviator exhales");
+            this.addSubtitle(CitadelIntegration.BLOVIATOR_LIGHTNING, "Bloviator shocks");
+        }
+    }
+
+    private void addSubtitle(DeferredHolder<SoundEvent, SoundEvent> sound, String subtitle) {
+        this.add("subtitles." + getPreLangKey(sound), subtitle);
     }
 
     // Automatically getting the assumed name

@@ -18,7 +18,7 @@ public class LParticleTypes {
     public static final DeferredHolder<ParticleType<?>, SimpleParticleType> CAELIC_FIRE_FLAME = register(false, "caelic_fire_flame");
     public static final DeferredHolder<ParticleType<?>, SimpleParticleType> SMALL_CAELIC_FIRE_FLAME = register(false, "small_caelic_fire_flame");
 
-    private static DeferredHolder<ParticleType<?>, SimpleParticleType> register(boolean alwaysShow, String name) {
+    public static DeferredHolder<ParticleType<?>, SimpleParticleType> register(boolean alwaysShow, String name) {
         return PARTICLE_TYPES.register(name, () -> new SimpleParticleType(alwaysShow));
     }
 

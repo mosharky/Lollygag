@@ -17,7 +17,8 @@ public enum Mods {
     BUZZIER_BEES,
     BOUNTIFULFARES,
     FARMERSDELIGHT,
-    OREGANIZED;
+    OREGANIZED,
+    CITADEL;
 
 
     private final String id;
