@@ -5,7 +5,7 @@ import net.minecraft.client.particle.*;
 import net.minecraft.core.particles.SimpleParticleType;
 import net.minecraft.util.RandomSource;
 
-// Ported from Cloud Storage by Alexthe668. Licensed under GPL-3.0, see LICENSE
+// Ported from Cloud Storage by Alexthe668
 public class BloviatorBreathParticle extends TextureSheetParticle {
     private static final int[] POSSIBLE_COLORS = {0xEDF4F6, 0xD0DBE2, 0xC0C5C7, 0xB1CEE0};
 

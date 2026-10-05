@@ -11,7 +11,7 @@ import net.minecraft.world.phys.Vec3;
 
 import java.util.Arrays;
 
-// Ported from Cloud Storage by Alexthe668. Licensed under GPL-3.0, see LICENSE
+// Ported from Cloud Storage by Alexthe668
 public class BloviatorModel extends AdvancedEntityModel<BloviatorEntity> {
     private final AdvancedModelBox root;
     private final AdvancedModelBox body;

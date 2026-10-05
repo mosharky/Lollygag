@@ -16,7 +16,7 @@ import net.minecraft.util.Mth;
 import net.minecraft.world.phys.Vec3;
 import org.joml.Vector4f;
 
-// Ported from Cloud Storage by Alexthe668. Licensed under GPL-3.0, see LICENSE
+// Ported from Cloud Storage by Alexthe668
 // The particle's speed is used as the bolt's end point
 public class StaticLightningParticle extends Particle {
     private final float toX;
