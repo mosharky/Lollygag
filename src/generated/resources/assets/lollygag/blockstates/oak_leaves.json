@@ -1,0 +1,48 @@
+{
+  "multipart": [
+    {
+      "apply": {
+        "model": "lollygag:block/oak_leaves"
+      }
+    },
+    {
+      "apply": {
+        "model": "lollygag:block/oak_leaves_droopy"
+      },
+      "when": {
+        "down": "false",
+        "north": "false"
+      }
+    },
+    {
+      "apply": {
+        "model": "lollygag:block/oak_leaves_droopy",
+        "y": 90
+      },
+      "when": {
+        "down": "false",
+        "east": "false"
+      }
+    },
+    {
+      "apply": {
+        "model": "lollygag:block/oak_leaves_droopy",
+        "y": 180
+      },
+      "when": {
+        "down": "false",
+        "south": "false"
+      }
+    },
+    {
+      "apply": {
+        "model": "lollygag:block/oak_leaves_droopy",
+        "y": 270
+      },
+      "when": {
+        "down": "false",
+        "west": "false"
+      }
+    }
+  ]
+}

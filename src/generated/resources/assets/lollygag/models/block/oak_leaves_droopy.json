@@ -1,0 +1,7 @@
+{
+  "parent": "lollygag:block/template_droopy_leaves",
+  "textures": {
+    "block": "minecraft:block/oak_leaves",
+    "droopy": "lollygag:block/oak_leaves_droopy"
+  }
+}

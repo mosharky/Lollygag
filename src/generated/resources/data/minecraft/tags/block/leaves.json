@@ -1,6 +1,10 @@
 {
   "values": [
     {
+      "id": "lollygag:oak_leaves",
+      "required": false
+    },
+    {
       "id": "lollygag:dead_leaves",
       "required": false
     },

@@ -15,6 +15,7 @@ import com.teamabnormals.incubation.common.block.BirdNestBlock;
 import com.teamabnormals.incubation.core.registry.IncubationBlocks;
 import momo.dev.lollygag.Lollygag;
 import momo.dev.lollygag.common.block.BranchBlock;
+import momo.dev.lollygag.common.block.DroopyLeavesBlock;
 import momo.dev.lollygag.common.block.LDwarfSpruceHeadBlock;
 import momo.dev.lollygag.common.block.LDwarfSprucePlantBlock;
 import net.hecco.bountifulfares.BountifulFares;
@@ -32,6 +33,7 @@ import net.minecraft.world.level.block.DoublePlantBlock;
 import net.minecraft.world.level.block.FireBlock;
 import net.minecraft.world.level.block.HorizontalDirectionalBlock;
 import net.minecraft.world.level.block.LanternBlock;
+import net.minecraft.world.level.block.PipeBlock;
 import net.minecraft.world.level.block.SlabBlock;
 import net.minecraft.world.level.block.StairBlock;
 import net.minecraft.world.level.block.WallTorchBlock;
@@ -89,6 +91,7 @@ public class LBlockStateProvider extends BlueprintBlockStateProvider {
         simpleBlock(SHORT_SKYGRASS.get(), tintedCross(name(SHORT_SKYGRASS)));
         flatBlockItem(SHORT_SKYGRASS.get());
 
+        droopyLeaves(OAK_LEAVES.get(), mcLoc("block/oak_leaves"));
         leaves(DEAD_LEAVES.get());
         leaves(ASPEN_LEAVES.get());
         leaves(BIRCH_LEAVES.get());
@@ -642,6 +645,26 @@ public class LBlockStateProvider extends BlueprintBlockStateProvider {
 
     public void leaves(Block block) {
         simpleBlockWithItem(block, models().leaves(name(block), modLoc("block/" + name(block))));
+    }
+
+    // Regular leaves, plus a droopy overhang on each side with nothing next to it when there's nothing below
+    public void droopyLeaves(Block block, ResourceLocation texture) {
+        String name = name(block);
+        ModelFile leaves = models().leaves(name, texture);
+        ModelFile droopy = models().withExistingParent(name + "_droopy", modLoc("block/template_droopy_leaves"))
+                .texture("block", texture)
+                .texture("droopy", modLoc("block/" + name + "_droopy"));
+
+        MultiPartBlockStateBuilder builder = getMultipartBuilder(block);
+        builder.part().modelFile(leaves).addModel().end();
+        // The template hangs off the north side; toYRot() is 0 for south, so rotate from the opposite direction
+        for (Direction direction : Direction.Plane.HORIZONTAL) {
+            builder.part()
+                    .modelFile(droopy).rotationY((int) direction.getOpposite().toYRot()).addModel()
+                    .condition(DroopyLeavesBlock.DOWN, false)
+                    .condition(PipeBlock.PROPERTY_BY_DIRECTION.get(direction), false).end();
+        }
+        simpleBlockItem(block, leaves);
     }
 
     public void mirroredSprouts(Block block) {

@@ -26,6 +26,9 @@ public class LBlocks {
     public static List<Branch> BRANCHES = new ArrayList<>();
 
 
+    // Leaves
+    public static final DeferredBlock<Block> OAK_LEAVES = register("oak_leaves", () -> new DroopyLeavesBlock(ofFullCopy(Blocks.OAK_LEAVES)));
+
     // Branches
     public static final Branch OAK_BRANCH = registerBranch("oak", () -> Blocks.OAK_LOG, () -> Blocks.STRIPPED_OAK_LOG);
     public static final Branch SPRUCE_BRANCH = registerBranch("spruce", () -> Blocks.SPRUCE_LOG, () -> Blocks.STRIPPED_SPRUCE_LOG);

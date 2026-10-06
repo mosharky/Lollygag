@@ -47,6 +47,7 @@ public class ClientEvents {
 
         event.register((stack, index) -> FoliageColor.get(0.5D, 1),
                 // Leaves
+                LBlocks.OAK_LEAVES.get(),
                 BFIntegration.ASPEN_LEAVES.get(),
                 BFIntegration.BIRCH_LEAVES.get(),
                 BFIntegration.PEAR_LEAVES.get(),
@@ -69,6 +70,7 @@ public class ClientEvents {
         }
 
         event.register((state, level, pos, tintIndex) -> level != null && pos != null ? BiomeColors.getAverageFoliageColor(level, pos) : GrassColor.get(0.5D, 1),
+                LBlocks.OAK_LEAVES.get(),
                 BFIntegration.ASPEN_LEAVES.get(),
                 BFIntegration.BIRCH_LEAVES.get(),
                 BFIntegration.PEAR_LEAVES.get(),

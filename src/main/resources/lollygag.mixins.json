@@ -16,8 +16,6 @@
     "bountifulfares.HangingPlumBlockMixin",
     "bountifulfares.HangingWalnutsBlockMixin",
     "bountifulfares.HangingWitheredGoldenAppleBlockMixin",
-    "BlockStateBaseMixin",
-    "LeavesBlockMixin",
     "LevelChunkMixin"
   ],
   "injectors": {
